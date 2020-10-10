@@ -1,0 +1,28 @@
+<svg id="Icon_Top_compare" data-name="Icon Top – compare" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="59" height="59" viewBox="0 0 59 59">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Combined_Shape" data-name="Combined Shape" d="M.833,11.667A.834.834,0,0,1,.833,10H12.5a.834.834,0,0,1,0,1.667Zm0-3.334a.833.833,0,0,1,0-1.667h15a.833.833,0,0,1,0,1.667ZM.833,5a.834.834,0,0,1,0-1.667H12.5A.834.834,0,0,1,12.5,5Zm0-3.334A.833.833,0,0,1,.833,0h15a.833.833,0,0,1,0,1.667Z" transform="translate(0 0)"/>
+    </clipPath>
+  </defs>
+  <circle id="Oval" cx="29.5" cy="29.5" r="29.5" fill="#3d76ce"/>
+  <g id="align-left" transform="translate(6 20)">
+    <g id="Group_11" data-name="Group 11" transform="translate(1.667 4.167)">
+      <path id="Combined_Shape-3" data-name="Combined Shape" d="M.833,11.667A.834.834,0,0,1,.833,10H12.5a.834.834,0,0,1,0,1.667Zm0-3.334a.833.833,0,0,1,0-1.667h15a.833.833,0,0,1,0,1.667ZM.833,5a.834.834,0,0,1,0-1.667H12.5A.834.834,0,0,1,12.5,5Zm0-3.334A.833.833,0,0,1,.833,0h15a.833.833,0,0,1,0,1.667Z" transform="translate(0 0)"/>
+      <g id="Mask_Group_11" data-name="Mask Group 11" clip-path="url(#clip-path)">
+        <g id="COLOR_black" data-name="COLOR/ black" transform="translate(-1.667 -4.167)">
+          <rect id="Rectangle" width="20" height="20" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g id="align-left_copy" data-name="align-left copy" transform="translate(33 20)">
+    <g id="Group_11-2" data-name="Group 11" transform="translate(1.667 4.167)">
+      <path id="Combined_Shape-4" data-name="Combined Shape" d="M.833,11.667A.834.834,0,0,1,.833,10H12.5a.834.834,0,0,1,0,1.667Zm0-3.334a.833.833,0,0,1,0-1.667h15a.833.833,0,0,1,0,1.667ZM.833,5a.834.834,0,0,1,0-1.667H12.5A.834.834,0,0,1,12.5,5Zm0-3.334A.833.833,0,0,1,.833,0h15a.833.833,0,0,1,0,1.667Z" transform="translate(0 0)"/>
+      <g id="Mask_Group_11-2" data-name="Mask Group 11" clip-path="url(#clip-path)">
+        <g id="COLOR_black-2" data-name="COLOR/ black" transform="translate(-1.667 -4.167)">
+          <rect id="Rectangle-2" data-name="Rectangle" width="20" height="20" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,46 @@
+<div class="inner-wraper">
+    <section class="lesson-cont-sect">
+        <div class="container">
+            <article>
+                <div class="setting-arrow">
+                    <a href="javascript:;" (click)="goBack()">
+                        <i class="fas fa-chevron-left"></i>
+                        <h6>{{ global.termsArray["lbl_Settings"] }}</h6>
+                    </a>
+                </div>
+                <div class="list-sentens text-center">
+                    <div class="in-list-setting">
+                        <div class="account-title">
+                            <h4>{{ global.termsArray["lbl_learning_language"] }}</h4>
+                            <p>
+                                {{ global.termsArray["lbl_choose_learning_language_subTitle"] }}
+                            </p>
+                        </div>
+
+                        <div class="learning-boxs">
+                            <div class="point-box" *ngFor="let language of languageData" (click)="changeLanguage(language?._id)" [ngClass]="
+                  id != null
+                    ? language?._id == id
+                      ? 'point-box'
+                      : 'read-lesson'
+                    : language?._id == global.user.learning_language_id
+                    ? 'point-box'
+                    : 'read-lesson'
+                ">
+                                <a href="javascript:;">
+                                    <h6>{{ global.termsArray[language?.term] }}</h6>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="bttn-blue">
+                            <button *ngIf="id != null" class="btn btn-blue" (click)="updateLanguage()">
+                {{ global.termsArray["lbl_update"] }}
+              </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <app-app></app-app>
+        </div>
+    </section>
+</div>

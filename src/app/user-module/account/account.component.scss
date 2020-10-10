@@ -1,0 +1,147 @@
+.account-title h4 {
+  padding-top: 2px;
+}
+
+.account-title p {
+  padding-bottom: 0px;
+}
+
+.bttn-blue {
+  margin-top: 10px;
+}
+
+.card-list-sub {
+  min-height: 80px;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.account-time ul {
+  list-style: "square";
+}
+
+form.checkout {
+  max-width: 500px;
+  margin: 2rem auto;
+  text-align: center;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  background: white;
+  font-family: monospace;
+  color: #525252;
+  font-size: 1.1rem;
+}
+
+form.checkout button {
+  padding: 0.5rem 1rem;
+  color: white;
+  background: coral;
+  border: none;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.cancel-subscription-class {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#cancel-subscription {
+  color: white;
+  font-size: 20px;
+  font-family: Akkurat-Bold;
+  line-height: 40px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+form.checkout button:active {
+  background: rgb(165, 76, 43);
+}
+
+.StripeElement {
+  margin: 1rem 0 1rem;
+  background-color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.big-model-dialog {
+  height: 100%;
+  background: linear-gradient(to right, #4882c2 0, #7eb8e3 100%);
+}
+
+#account-time p,
+span {
+  font-size: 16px;
+  color: white;
+  font-family: Akkurat-Bold;
+  max-width: 640px;
+}
+
+.sub-blue-box {
+  overflow: auto !important;
+}
+.ul-scroll {
+  max-height: 250px;
+  overflow-y: auto;
+}
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #f8f9fa;
+  opacity: 10;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #f8f9fa;
+  opacity: 10;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #f8f9fa;
+  opacity: 10;
+}
+.child-body h3 {
+  font-size: 20px;
+  font-family: Akkurat-Bold;
+  color: #4782c5;
+}
+
+.child-body {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.body-parent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

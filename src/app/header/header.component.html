@@ -1,0 +1,215 @@
+<ng-container *ngIf="!global.mobileCms">
+  <header *ngIf="!global.isLogin">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="navbar-brand">
+          <a class="navbar-brand-in" [routerLink]="['home']">
+            <img src="assets/images/logo.svg" alt="home logo image" />
+          </a>
+        </div>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <!-- <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['home']" routerLinkActive="active" (click)="setPageTitle('Home')">{{
+                  this.global.termsArray["lbl_home"]
+                    ? this.global.termsArray["lbl_home"]
+                    : "Home"
+                }}</a
+              >
+            </li> -->
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                [routerLink]="['method']"
+                routerLinkActive="active"
+                >{{
+                  this.global.termsArray["lbl_method"]
+                    ? this.global.termsArray["lbl_method"]
+                    : "Method"
+                }}</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                [routerLink]="['blog']"
+                [ngClass]="global.isBlogActive ? 'nav-link active' : 'nav-link'"
+                >{{
+                  this.global.termsArray["lbl_blog"]
+                    ? this.global.termsArray["lbl_blog"]
+                    : "Blog"
+                }}</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                [routerLink]="['reviews']"
+                routerLinkActive="active"
+                (click)="setPageTitle('Reviews')"
+                >{{
+                  this.global.termsArray["lbl_reviews_list"]
+                    ? this.global.termsArray["lbl_reviews_list"]
+                    : "Reviews"
+                }}</a
+              >
+            </li>
+          </ul>
+          <div
+            class="dropdown"
+            style="margin-left: 30px;"
+            *ngIf="languageArray && languageArray.length > 1"
+          >
+            <button
+              class="btn btn-info dropdown-toggle hover-btn"
+              type="button"
+              id="dropdownMenu2"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              style="
+                font-size: 14px;
+                font-family: 'Akkurat-Bold';
+                background: none;
+                backface-visibility: hidden;
+                box-shadow: none;
+              "
+            >
+              {{
+                global.selectedLabel
+                  ? global.selectedLabel
+                  : global.termsArray["lbl_choose_app_language"]
+              }}<img
+                src="assets/images/down-arrow.png"
+                style="margin-left: 5px; margin-top: -10px;"
+                alt="down arrow image"
+              />
+            </button>
+            <div
+              class="dropdown-menu"
+              aria-labelledby="dropdownMenu2"
+              style="margin-top: 40px; height: auto;"
+            >
+              <button
+                [ngClass]="
+                  language._id == global.selectLanguage
+                    ? 'dropdown-item active'
+                    : 'dropdown-item'
+                "
+                type="button"
+                style="font-size: 14px; font-family: 'Akkurat-Bold';"
+                *ngFor="let language of languageArray"
+                (click)="selectLanguage(language._id, language.label)"
+              >
+                {{ global.termsArray[language?.term] }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="try-butt-left" *ngIf="global.isLogin">
+          <figcaption
+            class="nav-link btn btn-black"
+            (click)="router.navigate(['user'])"
+          >
+            {{
+              global.user.name
+                ? global.user.name.length > 10
+                  ? global.user.name.slice(0, 10) + ".."
+                  : global.user.name
+                : ""
+            }}
+          </figcaption>
+
+          <div>
+            <a class="nav-link" (click)="logout()">{{
+              this.global.termsArray["lbl_Logout"]
+            }}</a>
+          </div>
+        </div>
+        <div class="try-butt-left" *ngIf="!global.isLogin">
+          <a
+            class="nav-link btn btn-black m_header_btn"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+            "
+            [routerLink]="['register']"
+            routerLinkActive="active"
+            (click)="setPageTitle('Sign up')"
+            >{{
+              this.global.termsArray["lbl_try_free"]
+                ? this.global.termsArray["lbl_try_free"]
+                : "Try free"
+            }}</a
+          >
+          <a
+            class="nav-link btnn-links disp-none"
+            [routerLink]="['login']"
+            routerLinkActive="active"
+            (click)="setPageTitle('Login')"
+            >{{
+              this.global.termsArray["lbl_login"]
+                ? this.global.termsArray["lbl_login"]
+                : "Login"
+            }}</a
+          >
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <header class="inner-headder" *ngIf="global.isLogin">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg">
+        <div class="navbar-brand">
+          <a
+            class="navbar-brand-in"
+            href="javascript:;"
+            [routerLink]="['user']"
+            (click)="setPageTitle('Lesson overview')"
+          >
+            <img src="assets/images/logo-blue.svg" alt="logo blue image" />
+          </a>
+        </div>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="try-butt-left m_header_btn">
+          <a
+            class="nav-link btn btn-black"
+            style="display: flex; justify-content: center; align-items: center;"
+            href="javascript:;"
+            (click)="logout()"
+            >{{ this.global.termsArray["lbl_Logout"] }}</a
+          >
+          <!--  <a class="nav-link btnn-links" href="#">Login</a> -->
+        </div>
+      </nav>
+    </div>
+  </header>
+</ng-container>

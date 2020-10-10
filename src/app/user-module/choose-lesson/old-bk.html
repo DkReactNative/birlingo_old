@@ -1,0 +1,118 @@
+<section class="lesson-cont-sect">
+  <div class="container">
+    <ng-template #template>
+      <div style="margin: 100px;">HHHHHHh</div>
+    </ng-template>
+    <article>
+      <!-- <span><h6>Lesson 5.3</h6></span> -->
+
+      <div class="list-sentens text-center">
+        <div class="in-list-leson">
+          <!-- <div
+              class="progres-box"
+              style="padding: 20px;
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+              flex-direction: column; 
+              margin-bottom: 20px;"
+              *ngIf="!global.loader && LessonFamily.family.length > 0"
+            >
+              <p>{{ global.termsArray["lbl_your_progress"] }}</p>
+              <p>
+                {{ global.termsArray["lbl_lesson"] }}
+                {{ completeCount + "/" + totalCount }}
+              </p>
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  [style.width]="(completeCount / totalCount) * 100 + '%'"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div> -->
+          <h4 style="max-width: 90%; margin: 20px 0px 25px 0px;">
+            {{ global.termsArray["lbl_choose_lesson"] }}
+          </h4>
+          <div
+            class="list-lesson-rrow"
+            *ngIf="
+                LessonFamily?.demo != undefined &&
+                LessonFamily.family != undefined
+              "
+          >
+            <!-- (click)="navigate()" -->
+            <div class="point-box" *ngIf="LessonFamily?.demo.progress >= 100">
+              <a (click)="navigate('demo', LessonFamily?.demo)">
+                <h6 class="newCss">
+                  {{ LessonFamily?.demo ?
+                  global.termsArray[LessonFamily?.demo.label] : "" }}
+                </h6>
+                <img src="assets/images/check-white.svg"
+              /></a>
+            </div>
+
+            <div
+              *ngIf="LessonFamily?.demo.progress < 100"
+              class="read-lesson"
+              (click)="navigate('demo', LessonFamily?.demo)"
+            >
+              <a>
+                <h6 class="newCss">
+                  {{ LessonFamily?.demo ?
+                  global.termsArray[LessonFamily?.demo.label] : "" }}
+                </h6>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    [style.width]="LessonFamily?.demo.progress + '%'"
+                  ></div>
+                </div>
+              </a>
+            </div>
+            <ng-container>
+              <div *ngFor="let family of LessonFamily?.family">
+                <div
+                  class="point-box"
+                  *ngIf="family?.progress >= 100"
+                  (click)="navigate('sentences', family, template)"
+                >
+                  <a>
+                    <h6 class="newCss">
+                      {{ global.termsArray[family?.Lfamily] }}
+                    </h6>
+                    <img src="assets/images/check-white.svg"
+                  /></a>
+                </div>
+                <!-- *ngIf="family?.progress < 100" -->
+                <div
+                  class="read-lesson"
+                  *ngIf="family?.progress < 100"
+                  (click)="navigate('sentences', family)"
+                >
+                  <a>
+                    <h6 class="newCss">
+                      {{ global.termsArray[family?.Lfamily] }}
+                    </h6>
+                    <div class="progress">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        [style.width]="family?.progress + '%'"
+                      ></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </article>
+    <app-app></app-app>
+  </div>
+</section>

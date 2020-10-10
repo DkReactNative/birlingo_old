@@ -1,0 +1,87 @@
+.setting-arrow a {
+  padding: 40px 0px;
+}
+.myclass {
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 70px;
+}
+
+#cmspages_id h2,
+h3,
+h4,
+h5,
+h6,
+h1 {
+  max-width: 100%px;
+  font-family: "ACaslonPro-Bold";
+  margin-bottom: 0px;
+  max-width: 100% !important;
+  word-break: break-all;
+}
+
+P {
+  font-size: 18px !important;
+  color: #888888;
+  font-family: "Akkurat-Reguler";
+  max-width: 100%;
+  word-break: break-all;
+}
+
+span {
+  font-size: 18px !important;
+  color: #888888 !important;
+  font-family: "Akkurat-Reguler" !important;
+  max-width: 100% !important;
+  word-break: break-all;
+}
+
+.blog-det-sect article .blog-dtl p,
+span {
+  font-size: 18px !important;
+  color: #888 !important;
+  font-family: Akkurat-Reguler !important;
+  max-width: 100% !important;
+  word-break: break-all;
+}
+
+#cmspages_id2 p,
+span {
+  font-size: 18px !important;
+  color: #888 !important;
+  font-family: Akkurat-Reguler !important;
+  max-width: 100% !important;
+  word-break: break-all;
+}
+
+#cmspages_id2 p > span {
+  font-size: 18px !important;
+  color: #888 !important;
+  font-family: Akkurat-Reguler !important;
+  max-width: 100% !important;
+  word-break: break-all;
+}
+
+#cmspages_id2 p {
+  font-size: 18px !important;
+  color: #888 !important;
+  font-family: Akkurat-Reguler !important;
+  max-width: 100% !important;
+  word-break: break-all;
+}
+
+#cmspages_id2 p:only-child {
+  font-size: 18px !important;
+  color: #888 !important;
+  font-family: Akkurat-Reguler !important;
+  max-width: 100% !important;
+  word-break: break-all;
+}
+
+// #cmspages_id2 {
+//   white-space: pre-line !important;
+// }
+
+#cmspages_id2 p {
+  padding-bottom: 15px !important;
+}

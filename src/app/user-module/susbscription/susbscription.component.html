@@ -1,0 +1,42 @@
+<div class="inner-wraper">
+    <section class="lesson-cont-sect">
+        <div class="container">
+            <article>
+                <div class="setting-arrow">
+                    <a href="javascript:;" (click)="goBack()">
+                        <i class="fas fa-chevron-left"></i>
+                        <h6>{{ global.termsArray["lbl_Settings"] }}</h6>
+                    </a>
+                </div>
+
+                <div class="list-lesson-mob">
+                    <div class="account-title" style="padding-bottom: 0px;">
+                        <h4>{{ global.termsArray["lbl_choose_subscription_title"] }}</h4>
+                        <ul>
+                            <li *ngFor="let content of susbcontent">
+                                <h4 style="font-size: 22px;
+              font-family: 'ACaslonPro-Bold';
+              color: #4882C2;
+              text-align: left;
+              padding-top: 30px;">
+                                    {{content?.title}}
+                                </h4>
+                            </li>
+
+
+                        </ul>
+                    </div>
+
+                    <div class="bttn-blue">
+                        <a class="btn btn-blue" href="javascript:;" (click)="submit()">{{
+                            global.termsArray["see_subscription"]
+                          }}</a
+                        >
+                      </div>
+
+                </div>
+            </article>
+            <!-- <app-app></app-app> -->
+        </div>
+    </section>
+</div>

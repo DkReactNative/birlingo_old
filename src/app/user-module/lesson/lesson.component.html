@@ -1,0 +1,970 @@
+<div class="inner-wraper lesson-pdd-sect">
+  <section class="lesson-cover-sect">
+    <div class="container">
+      <!-- <div *ngIf="global.loader" class="loading">Loading&#8230;</div> -->
+      <article *ngIf="loader">
+        <div class="setting-arrow">
+          <a href="javascript:;" (click)="navigate()">
+            <i class="fas fa-chevron-left"></i>
+            <h6>{{ global.termsArray["lbl_go_back"] }}</h6>
+          </a>
+        </div>
+        <app-no-data-found
+          *ngIf="lessons.length == 0"
+          style="display: flex; justify-content: center; align-items: center"
+        ></app-no-data-found>
+      </article>
+      <div class="lessons-slider" *ngIf="!loader">
+        <div
+          class="outs-box-fram outs-box-cover"
+          [ngClass]="
+            this.lessons[currentIndex].type == 'title' ? 'gradient-css' : ''
+          "
+          *ngIf="lessons.length > 0"
+        >
+          <div
+            class="lesson-items-sects"
+            [ngClass]="
+              this.lessons[currentIndex].type == 'title' ? 'border-white' : ''
+            "
+          >
+            <a
+              href="javascript:;"
+              (click)="navigate()"
+              [ngClass]="
+                this.lessons[currentIndex].type == 'title' ? 'color-white' : ''
+              "
+              ><i class="fas fa-times"></i
+            ></a>
+            <h6
+              [ngClass]="
+                this.lessons[currentIndex].type == 'title' ? 'color-white' : ''
+              "
+            >
+              {{
+                lessonType == "sentences"
+                  ? global.lesson_title
+                  : global.termsArray["lbl_demo"] + " "
+              }}{{ currentIndex + 1 }}
+            </h6>
+          </div>
+
+          <!--Carousel Wrapper-->
+          <div
+            id="video-carousel-example2"
+            class="carousel slide carousel-fade"
+            data-ride="carousel"
+            data-interval="false"
+            [hidden]="(!lessons && lessons.length == 0) || carosalHide"
+          >
+            <div class="bg-carousel-box" [hidden]="true">
+              <ol class="carousel-indicators scroo-dev-fix">
+                <li
+                  [ngClass]="j == 0 ? 'active' : ' ' + 'lists_' + j"
+                  [ngStyle]="{
+                    'margin-left':
+                      j == 0 && this.lessons.length > 38
+                        ? (this.lessons.length - 38) * 31 + 'px'
+                        : '0px'
+                  }"
+                  id="scroll-dot-{{ j }}"
+                  *ngFor="let dropdown of lessons; let j = index"
+                  data-target="#video-carousel-example2"
+                  attr.data-slide-to="{{ j }}"
+                ></li>
+              </ol>
+            </div>
+
+            <div class="carousel-inner lesson-sec-pdd" role="listbox">
+              <!-- First slide -->
+              <div
+                *ngFor="let lesson of lessons; let i = index"
+                [ngClass]="
+                  i == 0
+                    ? 'carousel-item active ' + 'list_' + i
+                    : 'carousel-item ' + 'list_' + i
+                "
+              >
+                <!--Mask color type == title design-->
+                <div class="view" *ngIf="lesson.type == 'title'">
+                  <h5
+                    [ngClass]="
+                      this.lessons[currentIndex].type == 'title'
+                        ? 'color-white'
+                        : ''
+                    "
+                    *ngIf="
+                      lesson.heading && lessonType == 'sentences' && i == 0;
+                      else falsecondition
+                    "
+                  >
+                    {{ global.termsArray["lbl_welcome_to"] }}<br />
+                    {{ lesson.lessonID }} <br />
+                    {{ global.termsArray[lesson.heading] }}
+                  </h5>
+                  <ng-template #falsecondition>
+                    <h5
+                      [ngClass]="
+                        this.lessons[currentIndex].type == 'title'
+                          ? 'color-white'
+                          : ''
+                      "
+                    >
+                      {{ global.termsArray[lesson.heading] }}
+                    </h5>
+                  </ng-template>
+                  <h5
+                    [ngClass]="
+                      this.lessons[currentIndex].type == 'title'
+                        ? 'color-white'
+                        : ''
+                    "
+                  >
+                    {{
+                      lessonType == "sentences"
+                        ? global.termsArray[lesson.message]
+                        : lesson.title
+                    }}
+                  </h5>
+                  <span *ngIf="lesson?.button"
+                    ><a class="btn-flex-column">
+                      <div class="bttn-blue" (click)="navigate('subscription')">
+                        <a
+                          class="btn btn-blue"
+                          href="javascript:;"
+                          style="background: lightskyblue"
+                          >{{ global.termsArray["lbl_free_trail"] }}</a
+                        >
+                      </div>
+                      <div class="bttn-blue" (click)="navigate('lesson')">
+                        <a
+                          class="btn btn-blue"
+                          href="javascript:;"
+                          style="background: lightskyblue"
+                          >{{ global.termsArray["lbl_to_lesson"] }}</a
+                        >
+                      </div>
+                    </a>
+                  </span>
+                </div>
+
+                <!--Mask color type == imagination screen-->
+                <div class="view" *ngIf="lesson.type == 'imagination'">
+                  <div class="listeng">
+                    <a href="javascript:;"
+                      ><img
+                        src="assets/images/Icon-top-situation.svg"
+                        alt="icon top situation image"
+                    /></a>
+                    <h3>{{ global.termsArray[lesson?.heading] }}</h3>
+                  </div>
+                  <div class="masks text-acaslon">
+                    <h2>{{ lesson?.sentence }}</h2>
+                  </div>
+                </div>
+
+                <!--Mask color type == compare design-->
+                <div class="view" *ngIf="lesson.type == 'compare'">
+                  <div class="listeng">
+                    <a href="javascript:;"
+                      ><img
+                        src="assets/images/Icon-top-compare.svg"
+                        alt="icon top comapre image"
+                    /></a>
+                    <h3>{{ global.termsArray[lesson?.heading] }}</h3>
+                  </div>
+                  <div class="masks">
+                    <div class="row">
+                      <div
+                        class="column"
+                        style="
+                          background-color: #e6eef5;
+                          padding: 5px 2.5px 5px 2.5px;
+                          margin: 5px 2.5px 5px 2.5px;
+                        "
+                        *ngFor="
+                          let sentence of lesson?.sentenceArray;
+                          let last = last;
+                          let first = first;
+                          let in = index
+                        "
+                      >
+                        <h2
+                          style="
+                            font-size: 26px;
+                            color: #000;
+                            font-family: ACaslonPro-Bold;
+                            font-weight: 900;
+                            margin-top: 5px;
+                          "
+                        >
+                          {{ sentence?.sentence1 }}
+                        </h2>
+                        <h2
+                          *ngIf="sentence?.sentence3"
+                          style="
+                            font-size: 18px;
+                            color: #000;
+                            font-family: ACaslonPro-Bold;
+                          "
+                        >
+                          {{ sentence?.sentence3 }}
+                        </h2>
+                        <h2
+                          style="
+                            font-family: ACaslonPro-Regular;
+                            font-size: 24px;
+                            margin-top: 20px;
+                          "
+                        >
+                          {{ sentence?.sentence2 }}
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- First slide type == repeat design -->
+
+                <!--Mask color-->
+                <div class="view" *ngIf="lesson.type == 'repeat'">
+                  <div class="listeng">
+                    <a href=""
+                      ><img
+                        src="assets/images/Icon-top-repeat.svg"
+                        alt="icon top repeat image"
+                    /></a>
+                    <h3>
+                      {{ global.termsArray[lesson?.heading] }}
+                    </h3>
+                  </div>
+                </div>
+
+                <!--Mask color type = song design screen-->
+                <ng-container *ngIf="lesson.type == 'song'">
+                  <div class="view">
+                    <div class="listeng">
+                      <a href="javascript:;"
+                        ><img
+                          src="assets/images/Icon-top–listen.svg"
+                          alt="icon top listen image"
+                      /></a>
+                      <h3>{{ global.termsArray[lesson?.heading] }}</h3>
+                    </div>
+                    <div class="masks">
+                      <div
+                        class="row"
+                        style="
+                          min-height: 80px;
+                          overflow-y: auto;
+                          max-height: 150px;
+                        "
+                      >
+                        <div
+                          class="column"
+                          style="
+                            background-color: none;
+                            padding: 5px 2.5px 5px 2.5px;
+                            margin: 5px 2.5px 5px 2.5px;
+                          "
+                          *ngFor="
+                            let sentence of lesson?.sentenceArray;
+                            let last = last;
+                            let first = first;
+                            let in = index
+                          "
+                        >
+                          <h2
+                            style="
+                              font-size: 26px;
+                              color: #000;
+                              font-family: ACaslonPro-Bold;
+                              font-weight: 900;
+                            "
+                          >
+                            {{ sentence?.sentence1 }}
+                          </h2>
+                          <h2
+                            *ngIf="sentence?.sentence3"
+                            style="
+                              font-size: 18px;
+                              color: #000;
+                              font-family: ACaslonPro-Bold;
+                            "
+                          >
+                            {{ sentence?.sentence3 }}
+                          </h2>
+                          <h2
+                            style="
+                              font-family: ACaslonPro-Regular;
+                              font-size: 24px;
+                              margin-top: 20px;
+                            "
+                          >
+                            {{ sentence?.sentence2 }}
+                          </h2>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="view-icon">
+                    <!-- <span
+                      ><a
+                        href="javascript:;"
+                        (click)="play(lesson?.sound, i, 0.9)"
+                        ><img
+                          [ngClass]="
+                            lesson?.toggle == 'refresh'
+                              ? 'height-70'
+                              : 'height-50'
+                          "
+                          src="{{ newCircleImage[lesson?.toggle] }}" /></a
+                    ></span> -->
+                    <span
+                      ><a
+                        ><circle-progress
+                          (click)="play(lesson?.sound, i, 0.9)"
+                          [percent]="circleProgressPercent"
+                          [startFromZero]="false"
+                          [maxPercent]="100"
+                          [showZeroOuterStroke]="true"
+                          [radius]="30"
+                          [space]="-2"
+                          [outerStrokeWidth]="2"
+                          [innerStrokeWidth]="2"
+                          [outerStrokeColor]="
+                            circleProgressPercent > 0 ? '#c3d6eb' : '#c3d6eb'
+                          "
+                          [innerStrokeColor]="'#c3d6eb'"
+                          [animation]="true"
+                          [animationDuration]="300"
+                          [backgroundStrokeWidth]="0"
+                          [outerStrokeLinecap]="'round'"
+                          [space]="-7"
+                          [showUnits]="false"
+                          [showTitle]="false"
+                          [showSubtitle]="false"
+                          [showImage]="true"
+                          [showInnerStroke]="true"
+                          [showZeroOuterStroke]="true"
+                          [imageSrc]="circleImage[lesson?.toggle]"
+                          [imageHeight]="25"
+                          [imageWidth]="25"
+                          [responsive]="false"
+                          [class]="'circle-progress'"
+                        ></circle-progress></a
+                    ></span>
+                  </div>
+                </ng-container>
+
+                <ng-container *ngIf="lesson.type == 'songLoop'">
+                  <div class="view" *ngIf="lesson.type == 'songLoop'">
+                    <div class="listeng">
+                      <h3 style="font-size: 20px">
+                        {{ global.termsArray[lesson?.heading] }}
+                      </h3>
+                    </div>
+
+                    <div class="time-section-less">
+                      <span>
+                        <ng-container
+                          [counter]="loopStopWatchTime"
+                          [interval]="900"
+                          [status]="lesson?.toggle == 'play' ? true : false"
+                          (value)="value = $event"
+                        >
+                          <h3 style="color: rgb(195, 214, 235)">
+                            <!-- {{ global.termsArray["lbl_minute"] }}<br /> -->
+                            {{ value?.value }}
+                          </h3>
+                        </ng-container>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="view-icon">
+                    <!-- <span
+                      ><a
+                        href="javascript:;"
+                        (click)="playLoop(lesson?.data, i, 0.9, 1)"
+                        ><img
+                          [ngClass]="
+                            lesson?.toggle == 'refresh'
+                              ? 'height-70'
+                              : 'height-50'
+                          "
+                          src="{{ newCircleImage[lesson?.toggle] }}" /></a
+                    ></span> -->
+
+                    <span
+                      ><a>
+                        <circle-progress
+                          (click)="playLoop(lesson?.data, i, 0.9, 1)"
+                          [percent]="percent()"
+                          [startFromZero]="false"
+                          [maxPercent]="100"
+                          [showZeroOuterStroke]="true"
+                          [radius]="30"
+                          [space]="-2"
+                          [outerStrokeWidth]="2"
+                          [innerStrokeWidth]="2"
+                          [outerStrokeColor]="
+                            percent() > 0 ? '#3399FF' : '#c3d6eb'
+                          "
+                          [innerStrokeColor]="'#c3d6eb'"
+                          [animation]="true"
+                          [animationDuration]="300"
+                          [backgroundStrokeWidth]="0"
+                          [outerStrokeLinecap]="'round'"
+                          [space]="-7"
+                          [showUnits]="false"
+                          [showTitle]="false"
+                          [showSubtitle]="false"
+                          [showImage]="true"
+                          [showInnerStroke]="true"
+                          [showZeroOuterStroke]="true"
+                          [imageSrc]="circleImage[lesson?.toggle]"
+                          [imageHeight]="25"
+                          [imageWidth]="25"
+                          [responsive]="false"
+                          [class]="'circle-progress'"
+                        ></circle-progress></a
+                    ></span>
+                  </div>
+                </ng-container>
+
+                <ng-container *ngIf="lesson.type == 'fast_song_with_sentence'">
+                  <div class="view">
+                    <div class="listeng">
+                      <a href="javascript:;"
+                        ><img
+                          src="assets/images/Icon-top–listen.svg"
+                          alt="icon top listen image"
+                      /></a>
+                      <h3>{{ global.termsArray[lesson?.heading] }}</h3>
+                    </div>
+                    <div class="masks newCss">
+                      <div
+                        class="row touch-event"
+                        *ngFor="let data of lesson.data; let j = index"
+                        (click)="
+                          playSentence(lesson?.data, i, 0.9, j);
+                          $event.stopPropagation()
+                        "
+                        id="scroll-{{ i + '' + j }}"
+                        [ngClass]="
+                          j == audioLoopIndex ? 'playing' : 'not-playing'
+                        "
+                        style="
+                          width: fit-content;
+                          border-bottom: solid 1px white;
+                          height: fit-content;
+                          margin-left: 0px;
+                          cursor: pointer;
+                        "
+                      >
+                        <div
+                          class="column"
+                          style="
+                            background-color: none;
+                            padding: 5px 2.5px 5px 2.5px;
+                            margin: 5px 2.5px 5px 2.5px;
+                          "
+                          *ngFor="
+                            let sentence of data?.sentenceArray;
+                            let last = last;
+                            let first = first;
+                            let in = index
+                          "
+                        >
+                          <h3
+                            style="
+                              font-family: ACaslonPro-Bold;
+                              font-size: 20px;
+                              font-weight: 700;
+                            "
+                          >
+                            {{ sentence?.sentence1 }}
+                          </h3>
+                          <h3
+                            *ngIf="sentence?.sentence3"
+                            style="
+                              font-family: ACaslonPro-Regular;
+                              font-size: 20px;
+                            "
+                          >
+                            {{ sentence?.sentence3 }}
+                          </h3>
+                        </div>
+                      </div>
+                      <div style="height: 70px; width: 100%"></div>
+                    </div>
+                  </div>
+                  <div class="view-icon">
+                    <!-- <span
+                      ><a
+                        href="javascript:;"
+                        (click)="playLoop(lesson?.data, i, 0.9, 0)"
+                        ><img
+                          [ngClass]="
+                            lesson?.toggle == 'refresh'
+                              ? 'height-70'
+                              : 'height-50'
+                          "
+                          src="{{ newCircleImage[lesson?.toggle] }}" /></a
+                    ></span> -->
+
+                    <span
+                      ><a
+                        ><circle-progress
+                          (click)="playLoop(lesson?.data, i, 0.9, 0)"
+                          [percent]="circleProgressPercent"
+                          [startFromZero]="false"
+                          [maxPercent]="100"
+                          [showZeroOuterStroke]="true"
+                          [radius]="30"
+                          [space]="-2"
+                          [outerStrokeWidth]="2"
+                          [innerStrokeWidth]="2"
+                          [outerStrokeColor]="
+                            circleProgressPercent > 0 ? '#3399FF' : '#c3d6eb'
+                          "
+                          [innerStrokeColor]="'#c3d6eb'"
+                          [animation]="true"
+                          [animationDuration]="300"
+                          [backgroundStrokeWidth]="0"
+                          [outerStrokeLinecap]="'round'"
+                          [space]="-7"
+                          [showUnits]="false"
+                          [showTitle]="false"
+                          [showSubtitle]="false"
+                          [showImage]="true"
+                          [showInnerStroke]="true"
+                          [showZeroOuterStroke]="true"
+                          [imageSrc]="circleImage[lesson?.toggle]"
+                          [imageHeight]="25"
+                          [imageWidth]="25"
+                          [responsive]="false"
+                          [class]="'circle-progress'"
+                        ></circle-progress></a
+                    ></span>
+                  </div>
+                </ng-container>
+
+                <ng-container *ngIf="lesson.type == 'slow_song_with_sentence'">
+                  <div class="view">
+                    <div class="listeng">
+                      <a href="javascript:;"
+                        ><img
+                          src="assets/images/Icon-top–listen.svg"
+                          alt="icon top listen image"
+                      /></a>
+                      <h3>{{ global.termsArray[lesson?.heading] }}</h3>
+                    </div>
+
+                    <div class="masks newCss">
+                      <div
+                        class="row touch-event"
+                        *ngFor="let data of lesson.data; let j = index"
+                        (click)="
+                          playSentence(lesson?.data, i, 0.9, j);
+                          $event.stopPropagation()
+                        "
+                        id="scroll-{{ i + '' + j }}"
+                        [ngClass]="
+                          j == audioLoopIndex ? 'playing' : 'not-playing'
+                        "
+                        style="
+                          width: fit-content;
+                          border-bottom: solid 1px white;
+                          height: fit-content;
+                          margin-left: 0px;
+                          cursor: pointer;
+                        "
+                      >
+                        <div
+                          class="column"
+                          style="
+                            background-color: none;
+                            padding: 5px 2.5px 5px 2.5px;
+                            margin: 5px 2.5px 5px 2.5px;
+                          "
+                          *ngFor="
+                            let sentence of data?.sentenceArray;
+                            let last = last;
+                            let first = first;
+                            let in = index
+                          "
+                        >
+                          <h3
+                            style="
+                              font-family: ACaslonPro-Bold;
+                              font-size: 20px;
+                            "
+                          >
+                            {{ sentence?.sentence1 }}
+                          </h3>
+                          <h3
+                            *ngIf="sentence?.sentence3"
+                            style="
+                              font-family: ACaslonPro-Regular;
+                              font-size: 20px;
+                            "
+                          >
+                            {{ sentence?.sentence3 }}
+                          </h3>
+                        </div>
+                      </div>
+                      <div style="height: 70px; width: 100%"></div>
+                    </div>
+                  </div>
+                  <div class="view-icon">
+                    <!-- <span
+                      ><a
+                        href="javascript:;"
+                        (click)="playLoop(lesson?.data, i, 0.7, 0)"
+                        ><img
+                          [ngClass]="
+                            lesson?.toggle == 'refresh'
+                              ? 'height-70'
+                              : 'height-50'
+                          "
+                          src="{{ newCircleImage[lesson?.toggle] }}" /></a
+                    ></span> -->
+
+                    <span
+                      ><a
+                        ><circle-progress
+                          (click)="playLoop(lesson?.data, i, 0.7, 0)"
+                          [percent]="circleProgressPercent"
+                          [startFromZero]="false"
+                          [maxPercent]="100"
+                          [showZeroOuterStroke]="true"
+                          [radius]="30"
+                          [space]="-2"
+                          [outerStrokeWidth]="2"
+                          [innerStrokeWidth]="2"
+                          [outerStrokeColor]="
+                            circleProgressPercent > 0 ? '#3399FF' : '#c3d6eb'
+                          "
+                          [innerStrokeColor]="'#c3d6eb'"
+                          [animation]="true"
+                          [animationDuration]="300"
+                          [backgroundStrokeWidth]="0"
+                          [outerStrokeLinecap]="'round'"
+                          [space]="-7"
+                          [showUnits]="false"
+                          [showTitle]="false"
+                          [showSubtitle]="false"
+                          [showImage]="true"
+                          [showInnerStroke]="true"
+                          [showZeroOuterStroke]="true"
+                          [imageSrc]="circleImage[lesson?.toggle]"
+                          [imageHeight]="25"
+                          [imageWidth]="25"
+                          [responsive]="false"
+                          [class]="'circle-progress'"
+                        ></circle-progress></a
+                    ></span>
+                  </div>
+                </ng-container>
+
+                <div
+                  class="list-sentens text-center"
+                  *ngIf="lesson.type == 'sentenceList'"
+                >
+                  <div class="in-list-leson view">
+                    <div class="listeng">
+                      <a href="javascript:;" [hidden]="true"
+                        ><img
+                          src="assets/images/Icon-top–listen.svg"
+                          alt="icon top listen image"
+                      /></a>
+                      <h3>
+                        {{ global.termsArray["lbl_sentencelist"] }}
+                      </h3>
+                    </div>
+                    <!-- <h4>{{ global.termsArray["lbl_sentencelist"] }}</h4> -->
+                    <div class="masks ov_auto">
+                      <div class="point-sect" *ngFor="let sen of lesson?.data">
+                        <span>{{ sen?.number }}</span>
+                        <a
+                          href="javascript:;"
+                          data-target="#video-carousel-example2"
+                          attr.data-slide-to="{{ sen?.index }}"
+                          (click)="switchSlide(sen?.index)"
+                          >{{ sen?.sentence }}</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/.Slides-->
+            <!--Controls-->
+            <a
+              class="carousel-control-prev"
+              href="javascript:;"
+              *ngIf="currentIndex > 0"
+              (click)="updateIndex(false)"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                href="#video-carousel-example2"
+                role="button"
+                data-slide="prev"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="javascript:;"
+              *ngIf="currentIndex < lessons.length - 1"
+              (click)="updateIndex(true)"
+            >
+              <span
+                class="carousel-control-next-icon"
+                href="#video-carousel-example2"
+                role="button"
+                data-slide="next"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Next</span>
+            </a>
+            <!--/.Controls-->
+          </div>
+          <!--Carousel Wrapper-->
+          <div class="slides-footer">
+            <div class="down-navs">
+              <ul>
+                <li>
+                  <div class="progress">
+                    <span
+                      class="progress-bar"
+                      role="progressbar"
+                      [style.width]="
+                        (saveHistory['active'].max /
+                          saveHistory.active['total']) *
+                          100 +
+                        '%'
+                      "
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                    </span>
+                  </div>
+                  <a
+                    href="javascript:;"
+                    [ngClass]="
+                      this.lessons[currentIndex].type == 'title' &&
+                      max_767_width
+                        ? 'color-white-icon'
+                        : ''
+                    "
+                    [ngClass]="hearStatus == 1 ? 'active newCss2' : 'newCss2'"
+                    (click)="hearStatus = 1"
+                    data-target="#video-carousel-example2"
+                    attr.data-slide-to="{{ 0 }}"
+                  >
+                    <i class="far fa-eye"></i>
+                    {{ global.termsArray["lbl_hearActively"] }}
+                  </a>
+                </li>
+                <li>
+                  <div class="progress">
+                    <span
+                      class="progress-bar"
+                      role="progressbar"
+                      [style.width]="percent() + '%'"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                    </span>
+                  </div>
+                  <a
+                    href="javascript:;"
+                    [ngClass]="
+                      this.lessons[currentIndex].type == 'title' &&
+                      max_767_width
+                        ? 'color-white-icon'
+                        : ''
+                    "
+                    [ngClass]="hearStatus == 2 ? 'active newCss2' : 'newCss2'"
+                    (click)="hearStatus = 2; currentIndex = songLoopIndex"
+                    data-target="#video-carousel-example2"
+                    attr.data-slide-to="{{ songLoopIndex }}"
+                  >
+                    <i class="fas fa-headphones"></i>
+                    {{ global.termsArray["lbl_listen_passively"] }}
+                  </a>
+                </li>
+                <li>
+                  <div class="progress">
+                    <span
+                      class="progress-bar"
+                      role="progressbar"
+                      [style.width]="
+                        (saveHistory['speak'].max /
+                          saveHistory.speak['total']) *
+                          100 +
+                        '%'
+                      "
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                    </span>
+                  </div>
+                  <a
+                    href="javascript;:"
+                    [ngClass]="
+                      this.lessons[currentIndex].type == 'title' &&
+                      max_767_width
+                        ? 'color-white-icon'
+                        : ''
+                    "
+                    [ngClass]="hearStatus == 3 ? 'active newCss2' : 'newCss2'"
+                    (click)="hearStatus = 3; currentIndex = speakIndex"
+                    data-target="#video-carousel-example2"
+                    attr.data-slide-to="{{ speakIndex }}"
+                  >
+                    <i class="fas fa-comment-alt"></i>
+                    {{ global.termsArray["lbl_speak"] }}
+                  </a>
+                </li>
+                <li>
+                  <div class="progress">
+                    <span
+                      class="progress-bar"
+                      role="progressbar"
+                      [style.width]="
+                        (saveHistory['repeat'].max /
+                          saveHistory.repeat['total']) *
+                          100 *
+                          modalConfirmation +
+                        '%'
+                      "
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                    </span>
+                  </div>
+                  <a
+                    href="javascript:;"
+                    [ngClass]="
+                      this.lessons[currentIndex].type == 'title' &&
+                      max_767_width
+                        ? 'color-white-icon'
+                        : ''
+                    "
+                    [ngClass]="hearStatus == 4 ? 'active newCss2' : 'newCss2'"
+                    (click)="hearStatus = 4; currentIndex = repeatIndex"
+                    data-target="#video-carousel-example2"
+                    attr.data-slide-to="{{ repeatIndex }}"
+                  >
+                    <i class="fas fa-redo"></i>
+                    {{ global.termsArray["lbl_repetition"] }}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div
+  class="modal fade"
+  id="myModal1"
+  role="dialog"
+  data-keyboard="false"
+  data-backdrop="static"
+>
+  <div class="modal-dialog big-model-dialog-lesson">
+    <!-- Modal content-->
+    <div class="modal-content" style="background-color: white">
+      <div
+        class="modal-body"
+        style="
+          font-size: 20px;
+          font-family: Akkurat-Bold;
+          margin: 0;
+          color: #4782c5;
+        "
+      >
+        {{ this.global.termsArray["lbl_confirm_repeat_msg"] }}
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          style="font-size: 15px; font-family: Akkurat-Bold"
+          data-dismiss="modal"
+          data-toggle="modal"
+          data-target="#myModal2"
+        >
+          {{ global.termsArray["lbl_no"] }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          style="font-size: 15px; font-family: Akkurat-Bold"
+          data-dismiss="modal"
+          (click)="modalConfirmationFill()"
+        >
+          {{ global.termsArray["lbl_yes"] }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="myModal2"
+  role="dialog"
+  data-keyboard="false"
+  data-backdrop="static"
+>
+  <div class="modal-dialog big-model-dialog-lesson">
+    <!-- Modal content-->
+    <div class="modal-content" style="background-color: white">
+      <div
+        class="modal-body"
+        style="
+          font-size: 20px;
+          font-family: Akkurat-Bold;
+          margin: 0;
+          color: #4782c5;
+        "
+      >
+        {{ this.global.termsArray["lbl_easily_repeat"] }}
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          style="font-size: 15px; font-family: Akkurat-Bold"
+          data-target="#video-carousel-example2"
+          attr.data-slide-to="{{ currentIndex - 2 }}"
+          data-dismiss="modal"
+        >
+          {{ global.termsArray["lbl_ok"] }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  id="open-modal"
+  [hidden]="true"
+  data-toggle="modal"
+  data-target="#myModal1"
+></div>

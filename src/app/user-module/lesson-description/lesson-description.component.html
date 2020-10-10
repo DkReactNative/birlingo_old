@@ -1,0 +1,338 @@
+<div class="inner-wraper">
+  <section class="lesson-cover-sect">
+    <div class="container">
+      <div class="lektionen-cover">
+        <div class="lekt-title">
+          <div class="d-flex">
+            <a href="javascript:;" (click)="location.back()"
+              ><i class="fas fa-angle-left"></i
+            ></a>
+            <h2>{{ global.termsArray[Lfamily] }}</h2>
+          </div>
+        </div>
+        <div
+          class="list-sentens-box"
+          infiniteScroll
+          [scrollWindow]="false"
+          [infiniteScrollDistance]="2"
+          [infiniteScrollThrottle]="50"
+          [immediateCheck]="true"
+          (scrolled)="onScroll()"
+        >
+          <div class="lekt-title-box"><h6>Level wählen</h6></div>
+          <div class="levels-list">
+            <ul class="nav not">
+              <li
+                class="nav-item"
+                [ngClass]="level == 'all' ? 'li-active' : ''"
+                (click)="filterLevel('all')"
+              >
+                <a
+                  class="nav-link"
+                  href="javascript:;"
+                  [ngClass]="level == 'all' ? 'text-active' : ''"
+                >
+                  {{
+                    global.termsArray["lbl_allLevels"]
+                      ? global.termsArray["lbl_allLevels"]
+                      : "All level"
+                  }}</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                [ngClass]="level == 1 ? 'li-active' : ''"
+                (click)="filterLevel(1)"
+              >
+                <a
+                  class="nav-link"
+                  href="Javascript:;"
+                  [ngClass]="level == 1 ? 'text-active' : ''"
+                >
+                  {{
+                    global.termsArray["lbl_level_one"]
+                      ? global.termsArray["lbl_level_one"]
+                      : "Level A1"
+                  }}</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                [ngClass]="level == 2 ? 'li-active' : ''"
+                (click)="filterLevel(2)"
+              >
+                <a
+                  class="nav-link"
+                  href="javascript:;"
+                  [ngClass]="level == 2 ? 'text-active' : ''"
+                >
+                  {{
+                    global.termsArray["lbl_level_two"]
+                      ? global.termsArray["lbl_level_two"]
+                      : "Levels A2"
+                  }}</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                [ngClass]="level == 3 ? 'li-active' : ''"
+                (click)="filterLevel(3)"
+              >
+                <a
+                  class="nav-link"
+                  href="javascript:;"
+                  [ngClass]="level == 3 ? 'text-active' : ''"
+                  >{{
+                    global.termsArray["lbl_level_three"]
+                      ? global.termsArray["lbl_level_three"]
+                      : "Levels B1"
+                  }}</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="lekt-title-box">
+            <h6>{{ global.termsArray["lbl_WorkAndEdu"] }}</h6>
+          </div>
+          <div class="levels-list">
+            <ul class="nav not">
+              <li
+                class="nav-item"
+                [ngClass]="status == 'all' ? 'li-active' : ''"
+                (click)="filterStatus('all')"
+              >
+                <a
+                  class="nav-link"
+                  href="javascript:;"
+                  [ngClass]="status == 'all' ? 'text-active' : ''"
+                  >{{
+                    global.termsArray["lbl_all"]
+                      ? global.termsArray["lbl_all"]
+                      : "All"
+                  }}</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                [ngClass]="status == 1 ? 'li-active' : ''"
+                (click)="filterStatus(1)"
+              >
+                <a
+                  class="nav-link"
+                  href="javascript:;"
+                  [ngClass]="status == 1 ? 'text-active' : ''"
+                  >{{
+                    global.termsArray["lbl_not_start"]
+                      ? global.termsArray["lbl_not_start"]
+                      : "Not started"
+                  }}</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                [ngClass]="status == 2 ? 'li-active' : ''"
+                (click)="filterStatus(2)"
+              >
+                <a
+                  class="nav-link"
+                  href="javascript:;"
+                  [ngClass]="status == 2 ? 'text-active' : ''"
+                  >{{
+                    global.termsArray["lbl_began"]
+                      ? global.termsArray["lbl_began"]
+                      : "Began"
+                  }}</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                [ngClass]="status == 3 ? 'li-active' : ''"
+                (click)="filterStatus(3)"
+              >
+                <a
+                  class="nav-link"
+                  href="javascript:;"
+                  [ngClass]="status == 3 ? 'text-active' : ''"
+                  >{{
+                    global.termsArray["lbl_completed"]
+                      ? global.termsArray["lbl_completed"]
+                      : "Completed"
+                  }}</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="lekt-title-box">
+            <h6>
+              {{
+                global.termsArray["lbl_yourLlesson"]
+                  ? global.termsArray["lbl_yourLlesson"]
+                  : "Your lesson"
+              }}
+            </h6>
+          </div>
+          <div
+            class="level-point"
+            *ngFor="let list of listArray; let i = index"
+          >
+            <div class="level-point-in">
+              <div class="lock-css">
+                <h6 class="h6-css newCss">
+                  {{
+                    global.termsArray[returnLevel(list.level_id)]
+                      ? global.termsArray[returnLevel(list.level_id)]
+                      : "name not inserted"
+                  }}
+                </h6>
+                <img
+                  *ngIf="!list?.is_free && !isSubscribed"
+                  style="width: 20px; height: 20px"
+                  src="assets/images/unlock@3x.png"
+                  alt="unlock icon image"
+                />
+              </div>
+              <h4>{{ list?.title ? list?.title : "Name not insert" }}</h4>
+              <div class="down-navs">
+                <ul>
+                  <li>
+                    <div class="progress">
+                      <span
+                        class="progress-bar"
+                        role="progressbar"
+                        [style.width]="list?.active_progress + '%'"
+                        aria-valuenow="25"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      >
+                      </span>
+                    </div>
+                    <a href="javascript:;" class="#">
+                      {{
+                        global.termsArray["lbl_hearActively"]
+                          ? global.termsArray["lbl_hearActively"]
+                          : "Hear actively"
+                      }}
+                    </a>
+                  </li>
+                  <li>
+                    <div class="progress">
+                      <span
+                        class="progress-bar"
+                        role="progressbar"
+                        [style.width]="list?.passive_progress + '%'"
+                        aria-valuenow="25"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      >
+                      </span>
+                    </div>
+                    <a href="javascript:;" class="active">
+                      {{
+                        global.termsArray["lbl_listen_passively"]
+                          ? global.termsArray["lbl_listen_passively"]
+                          : "listen passively"
+                      }}
+                    </a>
+                  </li>
+                  <li>
+                    <div class="progress">
+                      <span
+                        class="progress-bar"
+                        role="progressbar"
+                        [style.width]="list?.speak_progress + '%'"
+                        aria-valuenow="25"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      >
+                      </span>
+                    </div>
+                    <a href="javascript:;" class="#">
+                      {{
+                        global.termsArray["lbl_method_speak"]
+                          ? global.termsArray["lbl_method_speak"]
+                          : "Speak"
+                      }}
+                    </a>
+                  </li>
+                  <li>
+                    <div class="progress">
+                      <span
+                        class="progress-bar"
+                        role="progressbar"
+                        [style.width]="list?.repeat_progress + '%'"
+                        aria-valuenow="25"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      >
+                      </span>
+                    </div>
+                    <a href="javascript:;" class="#">
+                      {{
+                        global.termsArray["lbl_repetition"]
+                          ? global.termsArray["lbl_repetition"]
+                          : "Repeat"
+                      }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bttn-blue">
+                <a
+                  class="btn btn-blue"
+                  href="javascript:;"
+                  (click)="navigate(list, template, i)"
+                  >{{
+                    global.termsArray["lbl_start"]
+                      ? global.termsArray["lbl_start"]
+                      : "Start"
+                  }}</a
+                >
+                <!-- <a class="btn down-btn" href="javascript:;"
+                  ><img src="assets/images/download-w.svg"
+                /></a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <app-app></app-app>
+    </div>
+  </section>
+</div>
+
+<ng-template #template>
+  <div
+    class="modal-body like-sec"
+    style="
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      border-color: black;
+    "
+  >
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+      style="align-self: flex-start"
+    >
+      <span aria-hidden="true" style="color: white">&times;</span>
+    </button>
+    <h6 class="modal-title">
+      {{ global.termsArray["msg_first_14_days_free"] }}
+    </h6>
+    <div class="d-flex">
+      <button
+        type="submit"
+        class="btn btn-info modal-button"
+        (click)="navigateToSubscription(); modalRef.hide()"
+      >
+        {{ global.termsArray["lbl_see_pricing"] }}
+      </button>
+    </div>
+  </div>
+</ng-template>

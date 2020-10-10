@@ -1,0 +1,79 @@
+<div class="inner-wraper">
+  <section class="lesson-cont-sect">
+    <div class="container">
+      <article>
+        <!-- <div class="setting-arrow">
+            <a href="javascript:;">
+              <i class="fas fa-chevron-left"></i>
+              <h6>Setting</h6>
+            </a>
+        </div> -->
+
+        <div class="list-lesson-mob">
+          <div class="account-title" style="padding-bottom: 0px;">
+            <h4>{{ global.termsArray["lbl_your_download"] }}</h4>
+            <p style="padding-bottom: 0px;">
+              {{ global.termsArray["lbl_offline_subtitle"] }}
+            </p>
+            <h4
+              style="
+                font-size: 22px;
+                font-family: 'ACaslonPro-Bold';
+                color: #4882c2;
+                text-align: left;
+                padding-top: 30px;
+              "
+            >
+              {{ global.termsArray["lbl_download_from_store"] }}
+            </h4>
+          </div>
+          <div
+            class="button-gp-d"
+            style="
+              display: inline-flex;
+              width: 100%;
+              margin-top: 20px;
+              justify-content: center;
+            "
+          >
+            <a
+              href="javascript:;"
+              class="btn btn-ios d-flex"
+              style="margin-right: 20px;"
+              (click)="openUrl(1)"
+            >
+              <figure>
+                <img
+                  src="assets/images/google-play.svg"
+                  alt="google play store image"
+                />
+              </figure>
+              <figcaption>
+                <span>{{ global.termsArray["lbl_home_get_it_on"] }}</span>
+                <strong>
+                  {{ global.termsArray["lbl_home_google_play"] }}</strong
+                >
+              </figcaption>
+            </a>
+            <a
+              href="javascript:;"
+              class="btn btn-ios d-flex"
+              (click)="openUrl(2)"
+            >
+              <figure>
+                <i class="fab fa-apple"></i>
+              </figure>
+              <figcaption>
+                <span>
+                  {{ global.termsArray["lbl_home_download_on_the"] }}</span
+                >
+                <strong> {{ global.termsArray["lbl_home_app_store"] }}</strong>
+              </figcaption>
+            </a>
+          </div>
+        </div>
+      </article>
+      <app-app></app-app>
+    </div>
+  </section>
+</div>

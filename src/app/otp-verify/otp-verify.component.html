@@ -1,0 +1,99 @@
+<div class="inner-wraper login-ppd">
+  <section class="abg-form-sect">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1
+            style="
+              color: #fff;
+              margin-bottom: 20px;
+              font-family: 'ACaslonPro-Bold';
+            "
+          >
+            {{ global.termsArray["lbl_otp"] }}
+          </h1>
+          <div>
+            <p
+              style="
+                font-family: Akkurat-Bold;
+                color: #fff;
+                font-size: 16px;
+                margin-right: 5px;
+              "
+            >
+              {{ global.termsArray["lbl_otp_subtitle"] }}
+              <span
+                style="
+                  font-family: Akkurat-Bold;
+                  color: #fff;
+                  text-decoration: underline;
+                  font-size: 16px;
+                "
+              >
+                {{ email }}</span
+              >
+            </p>
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <form
+                [formGroup]="formData"
+                (ngSubmit)="verifyOtp(formData.value)"
+              >
+                <div class="form-group pb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    minlength="4"
+                    maxlength="4"
+                    formControlName="otp"
+                    [placeholder]="global.termsArray['lbl_enter_otp']"
+                  />
+                  <div
+                    *ngIf="
+                      formData.controls['otp'].invalid &&
+                      (formData.controls['otp'].dirty ||
+                        formData.controls['otp'].touched ||
+                        this.formSubmitAttempt)
+                    "
+                  >
+                    <div
+                      *ngIf="formData.controls['otp'].errors.required"
+                      style="color: red;"
+                    >
+                      {{ global.termsArray["msg_enter_otp"] }}
+                    </div>
+                    <div
+                      *ngIf="
+                        formData.controls['otp'].errors.minlength ||
+                        formData.controls['otp'].errors.maxlength ||
+                        formData.controls['otp'].errors.pattern
+                      "
+                      style="color: red;"
+                    >
+                      {{ global.termsArray["msg_enter_valid_otp"] }}
+                    </div>
+                  </div>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary mb-3"
+                  type="submit"
+                >
+                  {{ global.termsArray["lbl_Submit"] }}
+                </button>
+              </form>
+              <a style="color: white; margin: 30px;" (click)="resendOtp()"
+                ><u style="cursor: pointer;">{{
+                  global.termsArray["lbl_resend"]
+                }}</u></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

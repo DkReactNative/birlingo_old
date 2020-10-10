@@ -1,0 +1,12 @@
+<div class="inner-wraper" style="background-color: white;">
+    <section [ngClass]="global.mobileCms ? 'abg-sect newCss' : 'abg-sect'">
+        <div class="container">
+            <app-no-data-found *ngIf="!contentLoader"></app-no-data-found>
+
+            <h1>{{ policyArray["title"] ? policyArray["title"] : null }}</h1>
+            <!--  [textContent]="unwrap(policyArray['description'])" -->
+            <div id="cmspages_id"></div>
+
+        </div>
+    </section>
+</div>

@@ -1,0 +1,12 @@
+<div class="inner-wraper">
+    <section class="abg-sect">
+        <div class="container">
+            <app-no-data-found *ngIf="!contentLoader"></app-no-data-found>
+            <article>
+                <h1>{{ agbArray["title"] ? agbArray["title"] : null }}</h1>
+                <!-- <figure><img src="images/blog.jpg"></figure> -->
+                <div id="cmspages_id"></div>
+            </article>
+        </div>
+    </section>
+</div>

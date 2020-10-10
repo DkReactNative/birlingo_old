@@ -1,0 +1,27 @@
+<svg id="Icon_Top_image_situation" data-name="Icon Top – image situation" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="59" height="59" viewBox="0 0 59 59">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Clip_2" data-name="Clip 2" d="M0,0H34.66V25.974H0Z" transform="translate(0.383 0.598)" fill="none"/>
+    </clipPath>
+  </defs>
+  <circle id="Oval" cx="29.5" cy="29.5" r="29.5" fill="#3d76ce"/>
+  <g id="Group_9" data-name="Group 9" transform="translate(8 15)">
+    <g id="Group_8" data-name="Group 8">
+      <g id="Group_2" data-name="Group 2">
+        <g id="Group">
+          <g id="Group_3" data-name="Group 3" transform="translate(4.444)">
+            <path id="Clip_2-2" data-name="Clip 2" d="M0,0H34.66V25.974H0Z" transform="translate(0.383 0.598)" fill="none"/>
+            <g id="Group_3-2" data-name="Group 3" clip-path="url(#clip-path)">
+              <path id="Fill_1" data-name="Fill 1" d="M34.661,12.987c0,7.173-7.758,12.987-17.33,12.987S0,20.16,0,12.987,7.759,0,17.33,0s17.33,5.814,17.33,12.987" transform="translate(0.383 0.598)" fill="#fff"/>
+            </g>
+          </g>
+          <path id="Fill_4" data-name="Fill 4" d="M0,3.207A3.272,3.272,0,0,0,3.333,6.414,3.272,3.272,0,0,0,6.667,3.207,3.272,3.272,0,0,0,3.333,0,3.272,3.272,0,0,0,0,3.207" transform="translate(3.333 22.448)" fill="#fff"/>
+          <path id="Fill_6" data-name="Fill 6" d="M0,1.6a1.636,1.636,0,0,0,1.667,1.6A1.636,1.636,0,0,0,3.333,1.6,1.636,1.636,0,0,0,1.667,0,1.636,1.636,0,0,0,0,1.6" transform="translate(0 27.793)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g id="image-solid" transform="translate(19 21)">
+    <path id="Shape" d="M1.968,16A1.984,1.984,0,0,1,0,14V2A1.984,1.984,0,0,1,1.968,0H19.031A1.984,1.984,0,0,1,21,2V14a1.984,1.984,0,0,1-1.968,2Z" fill="#3d76ce"/>
+  </g>
+</svg>

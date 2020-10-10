@@ -1,0 +1,12 @@
+.newCss {
+    white-space: nowrap;
+    min-width: 100px;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.inactive-black {
+    border: 2px solid black;
+    border-radius: 12px;
+}

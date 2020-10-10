@@ -1,0 +1,210 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ngx-toastr/toastr.css";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+p > strong > a {
+  color: #fff !important;
+}
+
+p {
+  word-break: break-word !important;
+}
+
+span {
+  word-break: break-word !important;
+}
+.slider-banner-in {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+/* 
+.container-style {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+} */
+
+/* Carosel issue 2 time load start */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  .carousel-fade .carousel-item {
+    opacity: 0;
+    transition-duration: 0.6s;
+    transition-property: opacity;
+  }
+
+  .carousel-fade .carousel-item.active,
+  .carousel-fade .carousel-item-next.carousel-item-left,
+  .carousel-fade .carousel-item-prev.carousel-item-right {
+    opacity: 1;
+  }
+
+  .carousel-fade .active.carousel-item-left,
+  .carousel-fade .active.carousel-item-right {
+    opacity: 0;
+  }
+
+  .carousel-fade .carousel-item-next,
+  .carousel-fade .carousel-item-prev,
+  .carousel-fade .carousel-item.active,
+  .carousel-fade .active.carousel-item-left,
+  .carousel-fade .active.carousel-item-prev {
+    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+/* end  */
+
+#cmspages_id {
+  text-align: left !important;
+}
+#cmspages_id2 {
+  text-align: left !important;
+}
+
+.panel-heading2 {
+  text-align: left !important;
+}
+
+.big-model-dialog {
+  margin-top: 100px !important;
+}
+
+.big-model-dialog2 {
+  margin-top: 100px !important;
+}
+
+.big-model-dialog2 > .modal-content {
+  background-image: linear-gradient(
+    rgb(83, 179, 214),
+    rgb(48, 75, 195)
+  ) !important;
+}
+.big-model-dialog-lesson {
+  margin-top: 100px !important;
+}
+.form-control-input {
+  background-color: transparent;
+  border-bottom: 2px solid #fff !important;
+  border-radius: 0;
+  border: 1px solid transparent;
+  width: 100%;
+  color: #fff;
+  font-size: 13px;
+  font-family: Akkurat-bold;
+}
+
+.coupon-modal-footer {
+  border-top: 0px solid #e9ecef;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between !important;
+}
+
+.in-list-leson > div > h3 {
+  text-align: left !important;
+  max-width: 600px !important;
+  color: #4882c2 !important;
+}
+
+/* #toast-container > .toast-success {
+  background-image: url(assets/images/icon_success_toast.png) !important;
+} */
+
+#toast-container > .toast-success {
+  background-color: black;
+  color: white;
+}
+
+.toast-container .ngx-toastr {
+  position: relative;
+  font-family: Akkurat-Bold !important;
+  overflow: hidden;
+  margin: 0 0 6px;
+  margin: auto;
+  padding: 15px 40px 15px 50px !important;
+  display: flex;
+  justify-content: center;
+  min-height: 60px;
+  align-items: center;
+  padding: auto;
+  width: 100% !important;
+  border-radius: 3px 3px 3px 3px;
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  box-shadow: 0 0 12px #999999;
+  color: #ffffff;
+}
+
+.listeng h3 {
+  text-align: left !important;
+}
+
+.outs-box-cover .carousel-item .view h5 {
+  text-align: left !important;
+}
+#cmspages_id2 h2 {
+  font-family: Akkurat-Bold !important;
+  font-size: 22px;
+}
+
+#cmspages_id2 p {
+  padding-bottom: 15px !important;
+  /* white-space: pre-line !important;  */
+}
+
+/* #cmspages_id {
+  white-space: pre-line !important;
+} */
+
+.gradient-css {
+  background-image: linear-gradient(
+    rgb(83, 179, 214),
+    rgb(48, 75, 195)
+  ) !important;
+  background: rgb(108, 176, 210);
+  background: -moz-linear-gradient(
+    top,
+    rgba(108, 176, 210, 1) 0%,
+    rgba(60, 86, 190, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(108, 176, 210, 1) 0%,
+    rgba(60, 86, 190, 1) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(108, 176, 210, 1) 0%,
+    rgba(60, 86, 190, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6cb0d2', endColorstr='#3c56be',GradientType=0 );
+  margin-bottom: 10px;
+}
+.color-white-icon {
+  color: white !important;
+}
+
+.color-white-icon > i {
+  color: white !important;
+}
+.inactive-h6 {
+  color: #3d76ce !important;
+}
+.point-sect span {
+  min-width: 50px;
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  .point-sect span {
+    min-width: 40px !important;
+  }
+}

@@ -1,0 +1,70 @@
+<div
+  class="blog-banner-in myclass"
+  [ngStyle]="{
+    background: 'url(' + blogData.image + ')',
+    height: blogData && blogData.image ? '787px' : '0px',
+    width: '1461px'
+  }"
+  [style.background-size]="'cover'"
+  id="tabName"
+  style="background-repeat: no-repeat; margin: auto"
+></div>
+<div
+  class="inner-wraper"
+  style="padding-top: 0px"
+  style="margin: auto; width: 60%; padding-top: 0px !important"
+>
+  <section class="blog-det-sect" [hidden]="!blogData" style="padding-top: 0px">
+    <div class="container">
+      <article style="display: grid">
+        <div class="setting-arrow" style="margin-top: 50px">
+          <a
+            href="javascript:;"
+            style="width: fit-content; word-break: initial"
+          >
+            <i class="fas fa-chevron-left" (click)="goBack()"></i>
+            <h6 (click)="goBack()">{{ global.termsArray["lbl_go_back"] }}</h6>
+          </a>
+        </div>
+        <div
+          class="blog-dtl"
+          style="
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+          "
+        >
+          <h6 style="align-self: flex-start">
+            {{ this.date(blogData?.release_date) }}
+          </h6>
+          <h5
+            style="
+              display: inline-block;
+              word-break: break-all;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              align-self: flex-start;
+              max-width: 100% !important;
+            "
+          >
+            <a style="word-break: break-word">{{ blogData?.title }}</a>
+          </h5>
+          <!-- <figure style="max-width: 640px;"><img [src]="blogData && blogData.image?blogData.image:'assets/images/blog.jpg'" onError="assets/images/blog.jpg" style="max-height: 600px;"></figure> -->
+          <div
+            id="cmspages_id2"
+            class="cmspages_id"
+            style="
+              font-size: 18px !important;
+              color: #888888 !important;
+              font-family: 'Akkurat-Reguler' !important;
+              max-width: 100% !important;
+              word-break: break-all;
+            "
+          ></div>
+          <!-- [innerHTML]="blogData['description']" -->
+        </div>
+      </article>
+    </div>
+  </section>
+</div>

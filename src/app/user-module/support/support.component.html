@@ -1,0 +1,32 @@
+<div class="inner-wraper">
+  <section class="lesson-cont-sect">
+    <div class="container">
+      <article>
+        <div class="setting-arrow">
+          <a href="javascript:;" (click)="goBack()">
+            <i class="fas fa-chevron-left"></i>
+            <h6>{{ global.termsArray["lbl_Settings"] }}</h6>
+          </a>
+        </div>
+        <app-no-data-found *ngIf="!contentLoader"></app-no-data-found>
+        <div
+          [ngClass]="
+            supportArray == null
+              ? 'list-sentens text-center newCss'
+              : 'list-sentens text-center'
+          "
+        >
+          <div class="in-list-leson" style="text-align: left;">
+            <!-- <h4>{{ supportArray["title"] }}</h4> -->
+            <div
+              id="cmspages_id"
+              class="list-lesson-rrow"
+              style="display: block !important;"
+            ></div>
+          </div>
+        </div>
+      </article>
+      <app-app></app-app>
+    </div>
+  </section>
+</div>

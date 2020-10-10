@@ -1,0 +1,61 @@
+<ng-container *ngIf="!global.mobileCms">
+  <footer class="footer-bg" *ngIf="!global.isLogin">
+    <div class="container" style="width: 100%;">
+      <div class="d-flex justify-content-between">
+        <a [routerLink]="['home']"
+          ><img src="assets/images/logo.svg" alt="home logo image"
+        /></a>
+        <p
+          class="disp-none"
+          style="
+            color: #fff;
+            font-size: 16px;
+            font-family: 'Akkurat-Bold';
+            padding: 0px 20px;
+            text-decoration: none;
+          "
+        >
+          {{ copyRight }}
+        </p>
+        <ul class="foot-links">
+          <li>
+            <a
+              [routerLink]="['imprint']"
+              routerLinkActive="active"
+              class="nav-link"
+              (click)="setPageTitle('Imprint')"
+              >{{ this.global.termsArray["lbl_imprint"] }}</a
+            >
+          </li>
+          <li>
+            <a
+              [routerLink]="['privacy-policy']"
+              routerLinkActive="active"
+              class="nav-link"
+              (click)="setPageTitle('Privacy Policy')"
+              >{{ this.global.termsArray["lbl_privacy_policy"] }}</a
+            >
+          </li>
+          <li>
+            <a
+              [routerLink]="['agb']"
+              routerLinkActive="active"
+              class="nav-link"
+              (click)="setPageTitle('AGB')"
+              >{{ this.global.termsArray["lbl_agb"] }}</a
+            >
+          </li>
+
+          <li>
+            <a
+              [routerLink]="['contact']"
+              routerLinkActive="active"
+              (click)="setPageTitle('Contact')"
+              >{{ this.global.termsArray["lbl_contact"] }}</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</ng-container>

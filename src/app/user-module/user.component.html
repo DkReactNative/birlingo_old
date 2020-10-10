@@ -1,0 +1,75 @@
+<!-- <div class="footer-opp-sect" *ngIf="global.isLogin" id="no-footer-lesson">
+  <ul>
+    <li>
+      <div
+        [routerLink]="['/choose-lesson']"
+        [ngClass]="
+          global.profileTab == 1 ? 'footer-opp-sect-active' : 'inactive-black'
+        "
+        (click)="setPageTitle('Lesson overview', 1)"
+      >
+        <a>
+          <img src="assets/images/grid.svg" />
+          <h6 class="newCss">
+            {{ this.global.termsArray["lbl_lesson_overview"] }}
+          </h6>
+        </a>
+      </div>
+    </li>
+    <li>
+      <div
+        [routerLink]="['/setting']"
+        [ngClass]="
+          global.profileTab == 2 ? 'footer-opp-sect-active' : 'inactive-black'
+        "
+        (click)="setPageTitle('Settings', 2)"
+      >
+        <a>
+          <img src="assets/images/settings.svg" />
+          <h6 class="newCss">
+            {{ this.global.termsArray["lbl_Settings"] }}
+          </h6>
+        </a>
+      </div>
+    </li>
+    <li>
+      <div
+        [routerLink]="['/downloads']"
+        [ngClass]="
+          global.profileTab == 3 ? 'footer-opp-sect-active' : 'inactive-black'
+        "
+        (click)="setPageTitle('Settings', 3)"
+      >
+        <a>
+          <img src="assets/images/download.svg" />
+          <h6 class="newCss">
+            {{ this.global.termsArray["lbl_downloads"] }}
+          </h6>
+        </a>
+      </div>
+    </li>
+  </ul>
+</div> -->
+
+<div class="footer-opp-sect">
+  <ul>
+    <li [routerLink]="['/choose-lesson']">
+      <a href="javascript:;">
+        <img src="assets/images/grid.svg" alt="grid lesson overview image" />
+        <h6>{{ this.global.termsArray["lbl_lesson_overview"] }}</h6></a
+      >
+    </li>
+    <li [routerLink]="['/setting']">
+      <a href="javascript:;">
+        <img src="assets/images/settings.svg" alt="setting icon image" />
+        <h6>{{ this.global.termsArray["lbl_Settings"] }}</h6></a
+      >
+    </li>
+    <li [routerLink]="['/downloads']">
+      <a href="javascript:;">
+        <img src="assets/images/download.svg" alt="download icon image" />
+        <h6>{{ this.global.termsArray["lbl_downloads"] }}</h6></a
+      >
+    </li>
+  </ul>
+</div>

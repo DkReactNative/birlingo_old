@@ -1,0 +1,15 @@
+<svg id="grid" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Combined_Shape" data-name="Combined Shape" d="M19,20H12a1,1,0,0,1-1-1V12a1,1,0,0,1,1-1h7a1,1,0,0,1,1,1v7A1,1,0,0,1,19,20Zm-6-7v5h5V13ZM8,20H1a1,1,0,0,1-1-1V12a1,1,0,0,1,1-1H8a1,1,0,0,1,1,1v7A1,1,0,0,1,8,20ZM2,13v5H7V13ZM19,9H12a1,1,0,0,1-1-1V1a1,1,0,0,1,1-1h7a1,1,0,0,1,1,1V8A1,1,0,0,1,19,9ZM13,2V7h5V2ZM8,9H1A1,1,0,0,1,0,8V1A1,1,0,0,1,1,0H8A1,1,0,0,1,9,1V8A1,1,0,0,1,8,9ZM2,2V7H7V2Z" transform="translate(2 2)"/>
+    </clipPath>
+  </defs>
+  <g id="Group_7" data-name="Group 7">
+    <path id="Combined_Shape-2" data-name="Combined Shape" d="M19,20H12a1,1,0,0,1-1-1V12a1,1,0,0,1,1-1h7a1,1,0,0,1,1,1v7A1,1,0,0,1,19,20Zm-6-7v5h5V13ZM8,20H1a1,1,0,0,1-1-1V12a1,1,0,0,1,1-1H8a1,1,0,0,1,1,1v7A1,1,0,0,1,8,20ZM2,13v5H7V13ZM19,9H12a1,1,0,0,1-1-1V1a1,1,0,0,1,1-1h7a1,1,0,0,1,1,1V8A1,1,0,0,1,19,9ZM13,2V7h5V2ZM8,9H1A1,1,0,0,1,0,8V1A1,1,0,0,1,1,0H8A1,1,0,0,1,9,1V8A1,1,0,0,1,8,9ZM2,2V7H7V2Z" transform="translate(2 2)"/>
+    <g id="Mask_Group_7" data-name="Mask Group 7" clip-path="url(#clip-path)">
+      <g id="COLOR_black" data-name="COLOR/ black">
+        <rect id="Rectangle" width="24" height="24"/>
+      </g>
+    </g>
+  </g>
+</svg>

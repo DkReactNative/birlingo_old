@@ -1,0 +1,18 @@
+<svg id="Repeat_1.0_Button" data-name="Repeat 1.0 Button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="74" height="74" viewBox="0 0 74 74">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Clip_2" data-name="Clip 2" d="M0,0H28V29H0Z" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_2" data-name="Group 2" transform="translate(7 7)">
+    <g id="Group">
+      <circle id="Oval" cx="30" cy="30" r="30" fill="#fff" stroke="#3d76ce" stroke-miterlimit="10" stroke-width="1"/>
+    </g>
+  </g>
+  <g id="Group_3" data-name="Group 3" transform="translate(23 23)">
+    <path id="Clip_2-2" data-name="Clip 2" d="M0,0H28V29H0Z" fill="none"/>
+    <g id="Group_3-2" data-name="Group 3" clip-path="url(#clip-path)">
+      <path id="Fill_1" data-name="Fill 1" d="M1.869,29V19.333h9.7L8.007,22.886A10.155,10.155,0,0,0,14,24.819,10.047,10.047,0,0,0,21.328,21.8a9.966,9.966,0,0,0,3.032-7.3H28a13.689,13.689,0,0,1-1.1,5.425,14.038,14.038,0,0,1-2.984,4.447,14.115,14.115,0,0,1-4.465,2.973A13.829,13.829,0,0,1,14,28.444,13.765,13.765,0,0,1,5.387,25.5L1.871,29ZM3.64,14.5H0A13.689,13.689,0,0,1,1.1,9.075,14.038,14.038,0,0,1,4.089,4.628,14.122,14.122,0,0,1,8.554,1.655,13.838,13.838,0,0,1,14,.556,13.768,13.768,0,0,1,22.613,3.5L26.131,0V9.667h-9.7l3.567-3.552A10.149,10.149,0,0,0,14,4.181,10.048,10.048,0,0,0,6.672,7.2,9.969,9.969,0,0,0,3.64,14.5Z" fill="#3d76ce"/>
+    </g>
+  </g>
+</svg>

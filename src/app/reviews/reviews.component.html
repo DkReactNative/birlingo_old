@@ -1,0 +1,86 @@
+<div class="inner-wraper">
+  <section class="abg-sect" ng-reflect-ng-class="abg-sect">
+    <div class="container">
+      <app-no-data-found *ngIf="!contentLoader"></app-no-data-found>
+      <div class="reviewContentBg">
+        <div class="bewertungenBox">
+          <h2>{{ global.termsArray["lbl_reviews_list"] }}</h2>
+          <div class="bewertungenList" *ngIf="reviewArray.percentage">
+            <ul>
+              <li
+                *ngFor="let percentage of reviewArray.percentage; let i = index"
+              >
+                <span>{{
+                  global.termsArray[percentage.lbl]
+                    ? global.termsArray[percentage.lbl]
+                    : i + 1 + " star"
+                }}</span>
+                <progress id="file" [value]="percentage?.percentage" max="100">
+                </progress>
+
+                <span style="margin-left: 10px;"
+                  >{{ percentage.percentage }}%</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="reviewList" *ngIf="reviewArray?.ratinglist">
+          <ul>
+            <li *ngFor="let list of reviewArray?.ratinglist?.result">
+              <h3>
+                {{ capitalize(list?.user_id.name) }}
+                {{ list?.user_id.surname ? list?.user_id.surname : "" }}
+              </h3>
+              <div class="rating-sec">
+                <ul>
+                  <li *ngFor="let rate of [1, 2, 3, 4, 5]; let i = index">
+                    <a href="javascript:;"
+                      ><i
+                        [ngClass]="
+                          rate <= list.rating ? 'fas fa-star' : 'far fa-star'
+                        "
+                      ></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="dateSubtitle">
+                <!-- <h4></h4> -->
+                <span>{{ date(list?.created) }}</span>
+              </div>
+              <p
+                style="
+                  display: inline-block;
+                  word-break: break-all;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  font-size: 15px;
+                "
+              >
+                {{
+                  list.feedback && list.feedback != ""
+                    ? list.feedback
+                    : global.termsArray["msg_no_feedback_submit "]
+                    ? global.termsArray["msg_no_feedback_submit "]
+                    : "Sorry! no feedback submitted by user"
+                }}
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <nav style="padding-left: 145px;">
+        <ul class="pagination pagination-lg" *ngIf="fakeArray.length != 1">
+          <li
+            *ngFor="let data of fakeArray; let i = index"
+            (click)="getList(i + 1)"
+            [ngClass]="i == currentPage ? 'page-item active' : 'page-item'"
+          >
+            <a class="page-link">{{ i + 1 }}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+</div>

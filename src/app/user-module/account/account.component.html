@@ -1,0 +1,346 @@
+<div class="inner-wraper">
+  <section class="lesson-cont-sect">
+    <div class="container">
+      <article>
+        <div class="setting-arrow">
+          <a href="javascript:;" (click)="goBack()">
+            <i class="fas fa-chevron-left"></i>
+            <h6>{{ global.termsArray["lbl_Settings"] }}</h6>
+          </a>
+        </div>
+        <div class="list-sentens text-center">
+          <div class="in-list-setting">
+            <div class="account-title">
+              <h4>{{ global.termsArray["lbl_subscription_title"] }}</h4>
+              <p>{{ global.termsArray["lbl_subscription_desc"] }}</p>
+            </div>
+
+            <div class="sub-blue-box">
+              <ul class="ul-scroll">
+                <li
+                  [ngClass]="
+                    selectedPlanID && selectedPlanID == subscription?._id
+                      ? 'active'
+                      : subscription?.status == 1 &&
+                        (subscription?.payment_status == 'active' ||
+                          subscription?.payment_status == 'trialing' ||
+                          subscription.is_cancel)
+                      ? 'active'
+                      : ''
+                  "
+                  (click)="choosePlan(subscription)"
+                  *ngFor="let subscription of subscriptionList; let i = index"
+                >
+                  <a href="javascript:;">
+                    <div class="d-flex">
+                      <div class="account-point-left">
+                        <p>{{ subscription?.name }}</p>
+                        <h6>
+                          {{ subscription?.validity }}
+                          {{ global.termsArray["lbl_subs_month"] }}
+                        </h6>
+                      </div>
+                      <div class="account-point-right">
+                        <h6>
+                          {{
+                            subscription?.price
+                              | currency: "EUR":"symbol":"1.2-2"
+                          }}
+                          | {{ global.termsArray["lbl_month"] }}
+                        </h6>
+                        <h4>
+                          {{ global.termsArray["lbl_subs_total_price"] }}
+                          {{
+                            subscription?.price * subscription?.validity
+                              | currency: "EUR":"symbol":"1.2-2"
+                          }}
+                        </h4>
+                      </div>
+                    </div>
+
+                    <div class="account-point-box">
+                      <div class="account-point-bttn">
+                        <button
+                          class="btn sky-btn"
+                          *ngIf="
+                            subscription?.status != 1 || subscription.is_cancel
+                          "
+                          [ngClass]="
+                            (selectedPlanID &&
+                              selectedPlanID == subscription?._id) ||
+                            subscription.is_cancel
+                              ? 'active'
+                              : ''
+                          "
+                          href="javascript:;"
+                          (click)="
+                            choosePlan(subscription);
+                            openModal(couponcode, 'big-model-dialog2')
+                          "
+                        >
+                          {{
+                            global.termsArray["lbl_choose"]
+                              ? global.termsArray["lbl_choose"]
+                              : "Choose"
+                          }}
+                        </button>
+                        <h6
+                          id="cancel-subscription"
+                          *ngIf="
+                            subscription?.status == 1 && !subscription.is_cancel
+                          "
+                          [ngClass]="
+                            (selectedPlanID &&
+                              selectedPlanID == subscription?._id) ||
+                            subscription?.status == 1
+                              ? ''
+                              : 'inactive-h6'
+                          "
+                          (click)="openModal(template)"
+                        >
+                          {{ global.termsArray["lbl_cancel_subscription"] }}
+                        </h6>
+                        <h6
+                          id="cancel-subscription"
+                          *ngIf="subscription.is_cancel"
+                          [ngClass]="
+                            (selectedPlanID &&
+                              selectedPlanID == subscription?._id) ||
+                            subscription?.status == 1
+                              ? ''
+                              : 'inactive-h6'
+                          "
+                        >
+                          {{ global.termsArray["lbl_subscription_cancelled"] }}
+                        </h6>
+                        <p
+                          *ngIf="
+                            subscription?.startdate &&
+                            (subscription?.payment_status == 'active' ||
+                              subscription?.payment_status == 'trialing')
+                          "
+                          [ngClass]="
+                            (selectedPlanID &&
+                              selectedPlanID == subscription?._id) ||
+                            subscription?.status == 1
+                              ? 'active-h6'
+                              : 'inactive-h6'
+                          "
+                        >
+                          {{ global.termsArray["lbl_end_date"] }}
+                          {{
+                            transform(
+                              subscription?.payment_status == "trialing"
+                                ? subscription.plan_ended
+                                : subscription.expire
+                            )
+                          }}
+                        </p>
+                        <p
+                          *ngIf="
+                            subscription?.expire &&
+                            subscription?.payment_status == 'not_started'
+                          "
+                        >
+                          {{ global.termsArray["lbl_start_date"] }}
+                          {{ transform(subscription.startdate) }}
+                        </p>
+                      </div>
+                      <h3 *ngIf="subscription.subscription_saving">
+                        {{ global.termsArray["lbl_safe"] }} ${{
+                          subscription.subscription_saving
+                        }}
+                      </h3>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+
+              <div
+                class="sub-blue-text"
+                style="font-family: Akkurat-Bold; color: white"
+                [innerHtml]="
+                  subscriptionList && subscriptionList[0]
+                    ? subscriptionList[0].description
+                    : ''
+                "
+              ></div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <app-app></app-app>
+    </div>
+  </section>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4
+      class="modal-title"
+      style="
+        font-size: 25px;
+        font-family: Akkurat-Bold;
+        margin: 0;
+        color: #4782c5;
+      "
+    >
+      {{ global.termsArray["lbl_cancel_subscription"] }}
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div
+    class="modal-body"
+    style="
+      font-size: 16px;
+      font-family: Akkurat-Bold;
+      margin: 0;
+      color: #4782c5;
+    "
+  >
+    {{ global.termsArray["lbl_cancel_subs_confirm"] }}
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-danger"
+      style="font-size: 15px; font-family: Akkurat-Bold"
+      (click)="modalRef.hide()"
+    >
+      {{ global.termsArray["lbl_no"] }}
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      style="font-size: 15px; font-family: Akkurat-Bold"
+      (click)="modalRef.hide(); cancelSubscription(subscribedId)"
+    >
+      {{ global.termsArray["lbl_yes"] }}
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #couponcode>
+  <div class="modal-header" style="border-bottom-width: 0px">
+    <h4
+      class="modal-title"
+      style="
+        font-size: 25px;
+        font-family: Akkurat-Bold;
+        margin: 0;
+        color: white;
+      "
+    >
+      {{ global.termsArray["lbl_enter_promo_code"] }}
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <input
+      type="email"
+      class="form-control-input"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      [(ngModel)]="couponCode"
+      [placeholder]="global.termsArray['lbl_promo_code']"
+    />
+  </div>
+  <div class="modal-footer coupon-modal-footer">
+    <button
+      type="button"
+      class="btn btn-basic"
+      style="font-size: 15px; font-family: Akkurat-Bold; color: #3d76ce"
+      (click)="modalRef.hide(); updatePlan()"
+    >
+      {{ global.termsArray["lbl_skip"] }}
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      style="
+        font-size: 15px;
+        font-family: Akkurat-Bold;
+        background-color: rgb(83, 179, 214);
+        color: white;
+      "
+      (click)="applyCouponCode(couponCode)"
+    >
+      {{ global.termsArray["lbl_Submit"] }}
+    </button>
+  </div>
+</ng-template>
+
+<div
+  class="modal fade"
+  id="myModal1"
+  role="dialog"
+  data-keyboard="false"
+  data-backdrop="static"
+>
+  <div class="modal-dialog big-model-dialog-lesson">
+    <!-- Modal content-->
+    <div class="modal-content" style="background-color: white">
+      <div class="modal-body body-parent">
+        <div class="child-body">
+          <h3>{{ this.global.termsArray["lbl_total_price"] }}</h3>
+          <h3>{{ this.global.termsArray["lbl_subscription_amount"] }}</h3>
+          <h3>{{ this.global.termsArray["lbl_discount"] }}</h3>
+        </div>
+        <div class="child-body" *ngIf="couponCodeData">
+          <h3>
+            : {{ couponCodeData["total"] | currency: "EUR":"symbol":"1.2-2" }}
+          </h3>
+          <h3>
+            :
+            {{
+              couponCodeData["discount_less"] | currency: "EUR":"symbol":"1.2-2"
+            }}
+          </h3>
+          <h3>
+            :
+            {{
+              couponCodeData["discount_amount"]
+                | currency: "EUR":"symbol":"1.2-2"
+            }}
+          </h3>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          style="
+            font-size: 15px;
+            font-family: Akkurat-Bold;
+            border-top: 0px solid #e9ecef;
+          "
+          data-dismiss="modal"
+          (click)="updatePlan(true, this.couponCodeData)"
+        >
+          {{ global.termsArray["lbl_ok"] }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  id="open-modal"
+  [hidden]="true"
+  data-toggle="modal"
+  data-target="#myModal1"
+></div>

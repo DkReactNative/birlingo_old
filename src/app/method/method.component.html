@@ -1,0 +1,372 @@
+<div class="inner-wraper method_sec">
+  <div
+    class="method-banner-in"
+    [ngStyle]="{
+      background:
+        'url(' +
+        (content ? content.imageUrl + content.images.image_one : null) +
+        ')'
+    }"
+    [style.background-size]="'cover'"
+    id="tabName2"
+    style="background-repeat: no-repeat !important; margin: auto !important"
+  >
+    <div class="container">
+      <div class="banner-title">
+        <span>
+          <h6 class="d-inline-block">
+            {{ global.termsArray["lbl_method_heading1"] }}
+          </h6>
+          <h6>{{ global.termsArray["lbl_method_heading2"] }}</h6>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <section class="Methode-sec-box">
+    <div class="container">
+      <h4>{{ global.termsArray["lbl_method_heading3"] }}</h4>
+      <div
+        id="carouselExampleIndicators2"
+        class="carousel slide carousel-fade"
+        data-ride="carousel"
+        data-interval="false"
+        [hidden]="!content?.method_texts || carosalHide"
+      >
+        <ol
+          class="carousel-indicators d-lg-none d-sm-flex"
+          [hidden]="!max_767_width"
+          style="bottom: -10px"
+        >
+          <li
+            data-target="#carouselExampleIndicators2"
+            *ngFor="let data of content?.method_texts; let i = index"
+            id="{{ 'lists_' + i }}"
+            attr.data-slide-to="{{ i }}"
+            [ngClass]="i == 0 ? 'active' : ''"
+          ></li>
+        </ol>
+        <div class="carousel-inner" data-ride="carousel">
+          <div
+            class="carousel-item col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12"
+            *ngFor="let data of content?.method_texts; let i = index"
+            [ngClass]="i == 0 ? 'active' : max_767_width ? '' : 'active'"
+          >
+            <article style="min-height: 300px">
+              <div class="list-bg">
+                <h5>{{ global.termsArray[data.heading] }}</h5>
+              </div>
+              <figcaption>
+                <p>{{ data.text }}</p>
+                <i class="fas fa-check"></i>
+              </figcaption>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="Jetzt-box">
+        <div class="jet-title">
+          <h6 style="margin-right: 20px">
+            {{ global.termsArray["lbl_method_try_free"] }}
+          </h6>
+        </div>
+        <div class="jet-list">
+          <ul>
+            <li
+              [ngClass]="
+                language._id == global.learningLanguage ? ' active2' : ''
+              "
+              *ngFor="let language of global.learningLanguages"
+              (click)="selectLanguage(language._id)"
+            >
+              <a style="cursor: pointer">{{
+                global.termsArray[language?.term]
+              }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="Deine-Lerngara-sec">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="main-taitle-head">
+            <h4>{{ global.termsArray["lbl_method_learning_guarantee"] }}</h4>
+          </div>
+          <img
+            *ngIf="content && content.imageUrl"
+            src="{{ content.imageUrl + content.images.image_two }}"
+            alt="graf images"
+          />
+        </div>
+        <div class="col-md-5 main-taitle-none">
+          <h4>{{ global.termsArray["lbl_method_learning_guarantee"] }}</h4>
+          <div id="learning_guarantee_texts"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rounded-circle-sec mt-5 meth-p-b-100">
+    <div class="container">
+      <h5>{{ global.termsArray["lbl_method_how_it_works"] }}</h5>
+      <div id="how_it_works_texts"></div>
+    </div>
+  </section>
+
+  <section class="rounded-circle-sec mt-5 meth_herel">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 ml-auto">
+          <figure>
+            <img
+              *ngIf="content && content.imageUrl"
+              src="{{ content.imageUrl + content.images.image_three }}"
+              alt="active hearely text content image"
+            />
+          </figure>
+        </div>
+        <div class="round-box round-lefft">
+          <article>
+            <h4>{{ global.termsArray["lbl_method_active_hearely"] }}</h4>
+            <div id="hear_actively_texts"></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rounded-circle-sec mt-5 meth_here_2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <figure>
+            <img
+              *ngIf="content && content.imageUrl"
+              src="{{ content.imageUrl + content.images.image_four }}"
+              alt="hear passively text content image"
+            />
+          </figure>
+        </div>
+        <div class="round-box">
+          <article>
+            <h4>{{ global.termsArray["lbl_method_hear_passively"] }}</h4>
+            <div id="hear_passively_texts"></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rounded-circle-sec mt-5 meth_here_3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 ml-auto">
+          <figure>
+            <img
+              *ngIf="content && content.imageUrl"
+              src="{{ content.imageUrl + content.images.image_five }}"
+              alt="speak text content image"
+            />
+          </figure>
+        </div>
+        <div class="round-box round-lefft">
+          <article>
+            <h4>{{ global.termsArray["lbl_method_speak"] }}</h4>
+            <div id="speak_texts"></div>
+            <a
+              class="btn btn-black"
+              href="javascript:;"
+              [routerLink]="['/register']"
+              routerLinkActive="active"
+              (click)="setPageTitle('Sign up')"
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              >{{ global.termsArray["lbl_method_try_free"] }}</a
+            >
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slider-text-pddt">
+    <div class="slider-text-bg">
+      <div class="container">
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide"
+          data-ride="carousel"
+        >
+          <ol class="carousel-indicators">
+            <li
+              data-target="#carouselExampleIndicators"
+              *ngFor="let slide of testimonials; let i = index"
+              attr.data-slide-to="{{ i }}"
+              [ngClass]="i == 0 ? 'active' : ''"
+            ></li>
+          </ol>
+          <div class="carousel-inner">
+            <div
+              class="carousel-item"
+              *ngFor="let slide of testimonials; let i = index"
+              [ngClass]="i == 0 ? 'active' : ''"
+            >
+              <h1>“</h1>
+              <h4>{{ slide?.title }}</h4>
+              <p>
+                {{ slide.description }}
+              </p>
+              <h6>{{ slide.name }}</h6>
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="Our-mission-sec">
+    <div class="container">
+      <div class="gratis-box">
+        <div class="border-in-sec">
+          <div class="d-flex">
+            <h5>{{ global.termsArray["lbl_try_it_N_days"] }}</h5>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                {{ global.termsArray["lbl_choose_app_language"]
+                }}<img
+                  src="assets/images/down-arrow.png"
+                  alt="down arrow image"
+                />
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a
+                  class="dropdown-item"
+                  href="javascript:;"
+                  *ngFor="let language of global.learningLanguages"
+                  [ngClass]="
+                    language._id == global.learningLanguage
+                      ? 'dropdown-item active'
+                      : 'dropdown-item'
+                  "
+                  (click)="selectLanguage(language._id)"
+                  >{{ global.termsArray[language?.term] }}</a
+                >
+              </div>
+            </div>
+          </div>
+          <img src="assets/images/border-up.png" alt="border up image" />
+        </div>
+        <div class="offers-tage">
+          <h6>{{ global.termsArray["lbl_N_days"] }}</h6>
+          <p>{{ global.termsArray["lbl_refund_gauranty"] }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="inner_faq_section">
+    <div class="faq_list-box">
+      <div class="container">
+        <div
+          class="panel-group"
+          id="accordion"
+          role="tablist"
+          aria-multiselectable="false"
+        >
+          <div
+            class="panel panel-default"
+            *ngFor="let faq of content?.faqs; let i = index"
+          >
+            <div
+              class="panel-heading panel-heading2"
+              role="tab"
+              id="heading{{ i }}"
+              (click)="generateFaq('collapses' + i, faq.answer)"
+            >
+              <h4 class="panel-title">
+                <a
+                  role="button"
+                  data-toggle="collapse"
+                  data-parent="#accordion"
+                  href="#collapse{{ i }}"
+                  aria-expanded="false"
+                  attr.aria-controls="collapse{{ i }}"
+                >
+                  {{ faq.question }}
+                </a>
+              </h4>
+            </div>
+            <div
+              id="collapse{{ i }}"
+              class="panel-collapse collapse in"
+              role="tabpanel"
+              attr.aria-labelledby="heading{{ i }}"
+              data-parent="#accordion"
+            >
+              <div class="panel-body">
+                <!-- <span>A:</span> -->
+                <div id="collapses{{ i }}"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<a
+  [hidden]="true"
+  id="box-pre"
+  class="carousel-control-prev"
+  href="#carouselExampleIndicators2"
+  role="button"
+  data-slide="prev"
+>
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="sr-only">Previous</span>
+</a>
+<a
+  [hidden]="true"
+  id="box-next"
+  class="carousel-control-next"
+  href="#carouselExampleIndicators2"
+  role="button"
+  data-slide="next"
+>
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="sr-only">Next</span>
+</a>

@@ -1,0 +1,39 @@
+<svg id="Icon_Top_Repeat" data-name="Icon Top – Repeat" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="59" height="59" viewBox="0 0 59 59">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Clip_2" data-name="Clip 2" d="M0,0H29.461V22.623H0Z" transform="translate(0.325 0.521)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Combined_Shape" data-name="Combined Shape" d="M.833,11.667A.834.834,0,0,1,.833,10H12.5a.834.834,0,0,1,0,1.667Zm0-3.334a.833.833,0,0,1,0-1.667h15a.833.833,0,0,1,0,1.667ZM.833,5a.834.834,0,0,1,0-1.667H12.5A.834.834,0,0,1,12.5,5Zm0-3.334A.833.833,0,0,1,.833,0h15a.833.833,0,0,1,0,1.667Z" transform="translate(0 0)"/>
+    </clipPath>
+  </defs>
+  <circle id="Oval" cx="29.5" cy="29.5" r="29.5" fill="#3d76ce"/>
+  <g id="Group_9" data-name="Group 9" transform="translate(11 17)">
+    <g id="Group_8" data-name="Group 8">
+      <g id="Group_2" data-name="Group 2">
+        <g id="Group">
+          <g id="Group_3" data-name="Group 3" transform="translate(3.778)">
+            <path id="Clip_2-2" data-name="Clip 2" d="M0,0H29.461V22.623H0Z" transform="translate(0.325 0.521)" fill="none"/>
+            <g id="Group_3-2" data-name="Group 3" clip-path="url(#clip-path)">
+              <path id="Fill_1" data-name="Fill 1" d="M29.461,11.311c0,6.247-6.595,11.312-14.731,11.312S0,17.558,0,11.311,6.6,0,14.731,0,29.461,5.064,29.461,11.311" transform="translate(0.325 0.521)" fill="#fff"/>
+            </g>
+          </g>
+          <path id="Fill_4" data-name="Fill 4" d="M0,2.793A2.813,2.813,0,0,0,2.833,5.586,2.813,2.813,0,0,0,5.667,2.793,2.813,2.813,0,0,0,2.833,0,2.813,2.813,0,0,0,0,2.793" transform="translate(2.833 19.552)" fill="#fff"/>
+          <path id="Fill_6" data-name="Fill 6" d="M0,1.4a1.407,1.407,0,0,0,1.417,1.4A1.407,1.407,0,0,0,2.833,1.4,1.407,1.407,0,0,0,1.417,0,1.407,1.407,0,0,0,0,1.4" transform="translate(0 24.207)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g id="align-left" transform="translate(20 19)">
+    <g id="Group_11" data-name="Group 11" transform="translate(1.667 4.167)">
+      <path id="Combined_Shape-2" data-name="Combined Shape" d="M.833,11.667A.834.834,0,0,1,.833,10H12.5a.834.834,0,0,1,0,1.667Zm0-3.334a.833.833,0,0,1,0-1.667h15a.833.833,0,0,1,0,1.667ZM.833,5a.834.834,0,0,1,0-1.667H12.5A.834.834,0,0,1,12.5,5Zm0-3.334A.833.833,0,0,1,.833,0h15a.833.833,0,0,1,0,1.667Z" transform="translate(0 0)"/>
+      <g id="Mask_Group_11" data-name="Mask Group 11" clip-path="url(#clip-path-2)">
+        <g id="COLOR_black" data-name="COLOR/ black" transform="translate(-1.667 -4.167)">
+          <rect id="Rectangle" width="20" height="20" fill="#020e59"/>
+          <rect id="Rectangle-2" data-name="Rectangle" width="20" height="20" fill="#020e59"/>
+          <rect id="Rectangle_Copy" data-name="Rectangle Copy" width="20" height="20" fill="#3d76ce"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

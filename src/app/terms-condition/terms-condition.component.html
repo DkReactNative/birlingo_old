@@ -1,0 +1,11 @@
+<div class="inner-wraper">
+    <section [ngClass]="global.mobileCms ? 'abg-sect newCss' : 'abg-sect'">
+        <div class="container">
+            <app-no-data-found *ngIf="!contentLoader"></app-no-data-found>
+            <article>
+                <h1>{{ termArray["title"] ? termArray["title"] : null }}</h1>
+                <div id="cmspages_id"></div>
+            </article>
+        </div>
+    </section>
+</div>

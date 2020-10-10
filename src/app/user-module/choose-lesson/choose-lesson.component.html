@@ -1,0 +1,108 @@
+<div class="inner-wraper">
+  <section class="lesson-cover-sect">
+    <div class="container">
+      <div class="lektionen-cover">
+        <div class="lekt-title">
+          <h2>
+            {{
+              global.termsArray["lbl_lesson_overview"]
+                ? global.termsArray["lbl_lesson_overview"]
+                : "Lessons"
+            }}
+          </h2>
+        </div>
+        <div class="lekt-title-box">
+          <h6>
+            {{
+              global.termsArray["lbl_chooseTopic"]
+                ? global.termsArray["lbl_chooseTopic"]
+                : "Choose topic"
+            }}
+          </h6>
+        </div>
+        <ng-container
+          *ngIf="LessonFamily?.family && LessonFamily?.family.length > 0"
+        >
+          <div class="list-sentens">
+            <div
+              class="thems-box"
+              *ngFor="let family of LessonFamily.family; let i = index"
+            >
+              <figure>
+                <img
+                  src="{{ LessonFamily?.imageUrl + family.image }}"
+                  alt="lesson family image"
+                />
+              </figure>
+              <h5>
+                {{
+                  global.termsArray["lbl_lessonSubject"]
+                    ? global.termsArray["lbl_lessonSubject"]
+                    : "Lektionen zum Thema:"
+                }}
+              </h5>
+              <h5 class="demo-name-text">
+                <strong>
+                  {{
+                    family?.Lfamily
+                      ? global.termsArray[family?.Lfamily]
+                      : "Name not insert"
+                  }}</strong
+                >
+              </h5>
+              <div class="thems-box-in them-unline">
+                <h4>
+                  {{
+                    global.termsArray["lbl_completeLesson"]
+                      ? global.termsArray["lbl_completeLesson"]
+                      : "Completed lessons"
+                  }}
+                </h4>
+              </div>
+              <div class="thems-box-in">
+                <div class="row" *ngFor="let level of family?.levels">
+                  <div class="col-md-4">
+                    <h6>
+                      {{ level?.label ? global.termsArray[level?.label] : "" }}
+                    </h6>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="progress-cover">
+                      <div class="progress">
+                        <div
+                          class="progress-bar"
+                          role="progressbar"
+                          [style.width]="
+                            (level?.compeleted / level.total) * 100 + '%'
+                          "
+                          aria-valuenow="25"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <span>{{ level?.compeleted }}/{{ level?.total }}</span>
+                  </div>
+                </div>
+
+                <div
+                  class="bttn-blue"
+                  (click)="navigate(i == 0 ? 'demo' : 'sentences', family)"
+                >
+                  <a class="btn btn-blue" href="javascript:;">{{
+                    global.termsArray["lbl_choose"]
+                      ? global.termsArray["lbl_choose"]
+                      : "Choose"
+                  }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <app-app></app-app>
+    </div>
+  </section>
+</div>

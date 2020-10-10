@@ -1,0 +1,361 @@
+<div class="inner-wraper login-ppd">
+  <section class="abg-form-sect singup-pdd">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <form
+            [formGroup]="formData"
+            (ngSubmit)="onClickSubmit(formData.value)"
+            autocomplete="off"
+          >
+            <h1>
+              {{
+                socialId
+                  ? global.termsArray["lbl_complete_profile"]
+                  : global.termsArray["lbl_signup"]
+              }}
+            </h1>
+            <p>
+              {{ global.termsArray["lbl_signup_sub_title"] }}
+            </p>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                {{
+                  formData.value["selectLanguage"] != ""
+                    ? formData.controls["selectLanguageTerm"].value
+                    : global.termsArray["lbl_choose_language"]
+                }}<i class="fas fa-caret-down"></i>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a
+                  class="dropdown-item"
+                  (click)="selectLanguage(language)"
+                  *ngFor="let language of global.learningLanguages"
+                  >{{ language.termtext }}</a
+                >
+              </div>
+              <span
+                class="glyphicon glyphicon-envelope form-control-feedback"
+              ></span>
+              <div
+                *ngIf="
+                  formData.controls['selectLanguage'].value == '' &&
+                  this.formSubmitAttempt
+                "
+              >
+                <span
+                  class="error text-danger"
+                  *ngIf="formData.controls['selectLanguage'].value == ''"
+                >
+                  {{ global.termsArray["err_select_language"] }}
+                </span>
+              </div>
+            </div>
+
+            <div class="d-flex">
+              <!--    <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                  <label class="form-check-label" for="exampleRadios1">
+                    Mr.
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                  <label class="form-check-label" for="exampleRadios1">
+                    Ms.
+                  </label>
+                </div> -->
+              <div class="custom-control custom-radio">
+                <input
+                  type="radio"
+                  class="custom-control-input"
+                  id="defaultUnchecked"
+                  name="gender"
+                  [checked]="formData.controls['gender'].value === 0"
+                  formControlName="gender"
+                />
+                <label
+                  class="custom-control-label"
+                  style="color: #fff;"
+                  for="defaultUnchecked"
+                  (click)="selectGender(0)"
+                >
+                  {{ global.termsArray["lbl_mr"] }}</label
+                >
+              </div>
+              <div class="custom-control custom-radio">
+                <input
+                  type="radio"
+                  class="custom-control-input"
+                  id="defaultUnchecked1"
+                  name="gender"
+                  [checked]="formData.controls['gender'].value === 1"
+                  formControlName="gender"
+                />
+                <label
+                  class="custom-control-label"
+                  style="color: #fff;"
+                  for="defaultUnchecked1"
+                  (click)="selectGender(1)"
+                >
+                  {{ global.termsArray["lbl_ms"] }}</label
+                >
+              </div>
+            </div>
+            <div
+              style="margin-top: -25px; margin-bottom: 10px;"
+              *ngIf="
+                formData.controls['gender'].value == '' &&
+                this.formSubmitAttempt
+              "
+            >
+              <div
+                *ngIf="formData.controls['gender'].value === ''"
+                style="color: red;"
+              >
+                {{ global.termsArray["msg_field_required"] }}
+              </div>
+            </div>
+
+            <div class="form-group pb-4">
+              <input
+                type="name"
+                class="form-control"
+                id="exampleInputEmail1"
+                style="text-transform: capitalize;"
+                [placeholder]="global.termsArray['lbl_name']"
+                formControlName="name"
+                maxlength="55"
+              />
+              <div
+                *ngIf="
+                  formData.controls['name'].invalid &&
+                  (formData.controls['name'].dirty ||
+                    formData.controls['name'].touched ||
+                    this.formSubmitAttempt)
+                "
+              >
+                <div
+                  *ngIf="formData.controls['name'].errors.required"
+                  style="color: red;"
+                >
+                  {{ global.termsArray["err_enter_name"] }}
+                </div>
+              </div>
+            </div>
+            <div class="form-group pb-4">
+              <input
+                type="name"
+                class="form-control"
+                id="exampleInputEmail1"
+                style="text-transform: capitalize;"
+                [placeholder]="global.termsArray['lbl_surname']"
+                formControlName="surname"
+                maxlength="55"
+              />
+              <div
+                *ngIf="
+                  formData.controls['surname'].invalid &&
+                  (formData.controls['surname'].dirty ||
+                    formData.controls['surname'].touched ||
+                    this.formSubmitAttempt)
+                "
+              >
+                <div
+                  *ngIf="formData.controls['surname'].errors.required"
+                  style="color: red;"
+                >
+                  {{ global.termsArray["err_select_surname"] }}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group pb-4">
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                [placeholder]="global.termsArray['lbl_email_address']"
+                formControlName="emailId"
+                maxlength="80"
+                autocomplete="new-password"
+              />
+              <div
+                *ngIf="
+                  formData.controls['emailId'].invalid &&
+                  (formData.controls['emailId'].dirty ||
+                    formData.controls['emailId'].touched ||
+                    this.formSubmitAttempt)
+                "
+              >
+                <div
+                  *ngIf="formData.controls['emailId'].errors.required"
+                  style="color: red;"
+                >
+                  {{ global.termsArray["msg_enter_email"] }}
+                </div>
+                <div
+                  *ngIf="formData.controls['emailId'].errors.pattern"
+                  style="color: red;"
+                >
+                  {{ global.termsArray["err_valid_email"] }}
+                </div>
+              </div>
+            </div>
+            <div class="form-group pb-4">
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                [placeholder]="global.termsArray['lbl_password']"
+                formControlName="password"
+              />
+              <div
+                *ngIf="
+                  formData.controls['password'].invalid &&
+                  (formData.controls['password'].dirty ||
+                    formData.controls['password'].touched ||
+                    this.formSubmitAttempt)
+                "
+              >
+                <div
+                  *ngIf="formData.controls['password'].errors.required"
+                  style="color: red;"
+                >
+                  {{ global.termsArray["err_enter_password"] }}
+                </div>
+                <div
+                  *ngIf="formData.controls['password'].errors.minlength"
+                  style="color: red;"
+                >
+                  {{ global.termsArray["err_pass_length"] }}
+                </div>
+                <div
+                  *ngIf="formData.controls['password'].errors.maxlength"
+                  style="color: red;"
+                >
+                  {{ global.termsArray["err_pass_length"] }}
+                </div>
+              </div>
+            </div>
+            <div class="form-group pb-4">
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                [placeholder]="global.termsArray['lbl_ConfirmPass']"
+                formControlName="copassword"
+              />
+              <div
+                *ngIf="
+                  !formData.controls['password'].untouched ||
+                  this.formSubmitAttempt ||
+                  !formData.controls['copassword'].untouched
+                "
+              >
+                <div
+                  *ngIf="
+                    formData.controls['copassword'].errors &&
+                    formData.controls['copassword'].errors.required
+                  "
+                  style="color: red;"
+                >
+                  {{ global.termsArray["err_enter_confirmPassword"] }}
+                </div>
+                <!-- <div
+                *ngIf="formData.controls['copassword'].errors.minlength"
+                style="color: red;"
+              >
+                confirm password with less than 6 characters.
+              </div> -->
+                <!-- <div
+                *ngIf="formData.controls['copassword'].errors.maxlength"
+                style="color: red;"
+              >
+                confirm password with more than 24 characters.
+              </div> -->
+              </div>
+              <div
+                *ngIf="
+                  !(
+                    formData.controls['copassword'].errors &&
+                    formData.controls['copassword'].errors.required
+                  ) &&
+                  formData.errors &&
+                  formData.errors != null &&
+                  formData.errors.passwordsNotEqual
+                "
+                style="color: red;"
+              >
+                {{ global.termsArray["err_password_not_match"] }}
+              </div>
+            </div>
+            <div class="form-check" style="margin-bottom: 0px; max-height: 70;">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+                formControlName="acceptTerms"
+              />
+              <label class="form-check-label" for="exampleCheck1">
+                {{ global.termsArray["msg_privacy_policy"] }}</label
+              >
+            </div>
+            <div
+              *ngIf="
+                (this.formSubmitAttempt ||
+                  formData.controls['acceptTerms'].touched) &&
+                formData.controls['acceptTerms'].invalid &&
+                formData.controls['acceptTerms'].errors.pattern
+              "
+              style="color: red; margin-top: -30px; margin-bottom: 10px;"
+            >
+              {{ global.termsArray["err_terms_condition"] }}
+            </div>
+
+            <button type="submit" class="btn btn-primary mb-3">
+              {{ global.termsArray["lbl_signup"] }}
+            </button>
+          </form>
+          <a style="color: #fff;">{{
+            global.termsArray["lbl_already_account"]
+          }}</a>
+          <a
+            style="color: #fff; font-weight: 800; text-decoration: underline;"
+            [routerLink]="['/login']"
+            routerLinkActive="active"
+            (click)="setPageTitle('Login')"
+          >
+            {{
+              this.global.termsArray["lbl_login"]
+                ? this.global.termsArray["lbl_login"]
+                : "Login"
+            }}</a
+          >
+        </div>
+        <div class="col-md-7 d-flex align-items-center">
+          <div class="sing-bttn" *ngIf="!socialId">
+            <h6>{{ global.termsArray["lbl_sign_with_social_networks"] }}</h6>
+            <span>
+              <a class="btn" (click)="socialSignIn()"
+                ><i class="fab fa-google"></i
+                >{{ global.termsArray["lbl_signup_with_google"] }}</a
+              >
+              <a class="btn" (click)="facebookLogin()"
+                ><i class="fab fa-facebook-f"></i
+                >{{ global.termsArray["lbl_signup_with_facebook"] }}</a
+              >
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

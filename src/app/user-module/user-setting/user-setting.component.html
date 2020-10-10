@@ -1,0 +1,182 @@
+<div class="inner-wraper">
+  <section class="lesson-cont-sect">
+    <div class="container">
+      <article>
+        <div class="list-sentens text-center">
+          <div class="setting-sec">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a
+                  role="button"
+                  data-toggle="collapse"
+                  data-parent="#accordion"
+                  href="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                  (click)="navigate('profile')"
+                >
+                  {{ this.global.termsArray["lbl_profile"] }}
+                </a>
+              </h4>
+            </div>
+
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a
+                  role="button"
+                  data-toggle="collapse"
+                  data-parent="#accordion"
+                  href="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                  (click)="navigate('account')"
+                >
+                  {{ this.global.termsArray["lbl_account"] }}
+                </a>
+              </h4>
+            </div>
+
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a
+                  role="button"
+                  data-toggle="collapse"
+                  data-parent="#accordion"
+                  href="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                  (click)="navigate('choose-learning-language')"
+                >
+                  {{ this.global.termsArray["lbl_change_learning_title"] }}
+                </a>
+              </h4>
+            </div>
+
+            <div
+              class="panel-heading"
+              role="tab"
+              id="headingOne"
+              *ngIf="languageData && languageData.length > 1"
+            >
+              <h4 class="panel-title">
+                <a
+                  role="button"
+                  data-toggle="collapse"
+                  data-parent="#accordion"
+                  href="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                  (click)="navigate('choose-app-language')"
+                >
+                  {{ this.global.termsArray["lbl_change_web_language"] }}
+                </a>
+              </h4>
+            </div>
+
+            <div
+              class="panel-heading"
+              role="tab"
+              id="headingOne"
+              *ngIf="global.user.login_with_social == 2"
+            >
+              <h4 class="panel-title">
+                <a
+                  role="button"
+                  data-toggle="collapse"
+                  data-parent="#accordion"
+                  href="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                  (click)="navigate('change-password')"
+                >
+                  {{ this.global.termsArray["lbl_change_password"] }}
+                </a>
+              </h4>
+            </div>
+
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a
+                  role="button"
+                  data-toggle="collapse"
+                  data-parent="#accordion"
+                  href="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                  (click)="navigate('terms-use')"
+                >
+                  {{ this.global.termsArray["lbl_terms_use"] }}
+                </a>
+              </h4>
+            </div>
+
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a
+                  role="button"
+                  data-toggle="collapse"
+                  data-parent="#accordion"
+                  href="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                  (click)="navigate('privacy')"
+                >
+                  {{ this.global.termsArray["lbl_privacy_policy"] }}
+                </a>
+              </h4>
+            </div>
+
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a
+                  role="button"
+                  data-toggle="collapse"
+                  data-parent="#accordion"
+                  href="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                  (click)="navigate('support')"
+                >
+                  {{ this.global.termsArray["lbl_Support"] }}
+                </a>
+              </h4>
+            </div>
+
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a
+                  role="button"
+                  data-toggle="collapse"
+                  data-parent="#accordion"
+                  href="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                  (click)="navigate('rating')"
+                >
+                  {{ this.global.termsArray["lbl_rate_birlingo"] }}
+                </a>
+              </h4>
+            </div>
+
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a
+                  role="button"
+                  data-toggle="collapse"
+                  data-parent="#accordion"
+                  href="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                  (click)="logout()"
+                >
+                  {{ this.global.termsArray["lbl_Logout"] }}
+                </a>
+              </h4>
+            </div>
+          </div>
+        </div>
+      </article>
+      <app-app></app-app>
+    </div>
+  </section>
+</div>

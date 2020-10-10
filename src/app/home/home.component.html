@@ -1,0 +1,396 @@
+<div class="inner-wraper">
+  <div
+    class="slider-banner-in"
+    [ngStyle]="{
+      background:
+        'url(' +
+        (homeContent.imageUrl
+          ? homeContent?.imageUrl + homeContent?.images.banner_image
+          : null) +
+        ')'
+    }"
+    [style.background-size]="'cover'"
+    id="tabName2"
+    style="background-repeat: no-repeat !important; margin: auto !important"
+  >
+    <div class="container">
+      <div class="banner-title">
+        <span>
+          <h6 class="d-inline-block">
+            {{ global.termsArray["lbl_home_heading1"] }}
+          </h6>
+          <h6>
+            {{ global.termsArray["lbl_home_heading2"] }}
+          </h6>
+        </span>
+      </div>
+
+      <!--  -->
+      <div class="language-list" *ngIf="global.languageArray.length > 0">
+        <div class="list-bg">
+          <h6>
+            {{ global.termsArray["lbl_home_try_free"] }}
+          </h6>
+        </div>
+        <ul style="min-height: 40px; overflow-y: scroll; max-height: 300px">
+          <li *ngFor="let language of global.learningLanguages">
+            <a
+              href="javascript:;"
+              [ngClass]="
+                language._id == global.learningLanguage
+                  ? 'dropdown-item active'
+                  : 'dropdown-item'
+              "
+              (click)="selectLanguage(language._id)"
+              >{{ global.termsArray[language?.term] }}</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <section class="rounded-circle-sec mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <figure>
+            <img
+              *ngIf="homeContent.imageUrl"
+              src="{{
+                homeContent.imageUrl + homeContent.images.learning_text_image
+              }}"
+              alt="learning text image"
+            />
+          </figure>
+        </div>
+        <div class="round-box">
+          <article>
+            <h4>
+              {{ global.termsArray["lbl_home_learn_language_​​intuitively"] }}
+            </h4>
+            <div id="learning_language_texts"></div>
+            <h6
+              style="
+                font-size: 18px;
+                font-family: 'Akkurat-Bold';
+                margin: 0px;
+                color: #fff;
+                padding: 40px 0px;
+              "
+            >
+              {{ global.termsArray["lbl_N_days_test"] }}
+            </h6>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                {{ global.termsArray["lbl_choose_app_language"]
+                }}<img
+                  src="assets/images/down-arrow.png"
+                  alt="down arrow image"
+                />
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a
+                  href="javascript:;"
+                  [ngClass]="
+                    language._id == global.learningLanguage
+                      ? 'dropdown-item active'
+                      : 'dropdown-item'
+                  "
+                  (click)="selectLanguage(language._id)"
+                  *ngFor="let language of global.learningLanguages"
+                  >{{ global.termsArray[language?.term] }}</a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rounded-circle-sec mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 ml-auto">
+          <figure>
+            <img
+              *ngIf="homeContent.imageUrl"
+              src="{{
+                homeContent.imageUrl + homeContent.images.speak_text_image
+              }}"
+              alt="speak text image"
+            />
+            <p>
+              {{
+                homeContent.lady_texts
+                  ? homeContent.lady_texts
+                  : "«Es gibt keine schnelle Art zu lernen. Innert nur 3 Monaten habe" +
+                    "ich französisch gelernt und schlage mich schon ganz gut duch ;-)" +
+                    "Danke Birlingo-Team.»"
+              }}
+            </p>
+          </figure>
+        </div>
+        <div class="round-box round-lefft">
+          <article>
+            <h4>
+              {{ global.termsArray["lbl_home_speak_language_​​intuitively"] }}
+            </h4>
+            <div id="speak_language_texts"></div>
+            <h6
+              style="
+                font-size: 18px;
+                font-family: 'ACaslonPro-Bold';
+                margin: 0px;
+                color: #fff;
+                padding: 40px 0px;
+              "
+            >
+              {{ global.termsArray["lbl_N_days_test"] }}
+            </h6>
+            <a
+              class="btn btn-black"
+              href="javascript:;"
+              [routerLink]="['/register']"
+              routerLinkActive="active"
+              (click)="setPageTitle('Sign up')"
+              >{{ global.termsArray["lbl_home_try_free"] }}</a
+            >
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slider-text-pddt">
+    <div class="slider-text-bg">
+      <div class="container">
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide"
+          data-ride="carousel"
+        >
+          <ol class="carousel-indicators">
+            <li
+              data-target="#carouselExampleIndicators"
+              *ngFor="let slide of testimonials; let i = index"
+              attr.data-slide-to="{{ i }}"
+              [ngClass]="i == 0 ? 'active' : ''"
+            ></li>
+          </ol>
+          <div class="carousel-inner">
+            <div
+              class="carousel-item"
+              *ngFor="let slide of testimonials; let i = index"
+              [ngClass]="i == 0 ? 'active' : ''"
+            >
+              <h1>“</h1>
+              <h4>{{ slide?.title }}</h4>
+              <p>
+                {{ slide.description }}
+              </p>
+              <h6>{{ slide.name }}</h6>
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="Our-mission-sec">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="main-taitle-head">
+            <h4>{{ global.termsArray["lbl_home_our_mission"] }}</h4>
+          </div>
+          <figure>
+            <img
+              *ngIf="homeContent.imageUrl"
+              src="{{
+                homeContent.imageUrl + homeContent.images.our_text_image
+              }}"
+              alt="our text image"
+            />
+          </figure>
+        </div>
+        <div class="col-md-5 main-taitle-none">
+          <h4>{{ global.termsArray["lbl_home_our_mission"] }}</h4>
+          <div id="our_mission_texts"></div>
+          <span
+            ><a
+              class="btn btn-black"
+              [routerLink]="['/register']"
+              routerLinkActive="active"
+              (click)="setPageTitle('Sign up')"
+              >{{ global.termsArray["lbl_choose_app_language"] }}</a
+            ></span
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="Our-Inhalte-sec">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 main-taitle-none">
+          <h4>{{ global.termsArray["lbl_home_choose_content_yourself"] }}</h4>
+          <div id="content_yourself_texts"></div>
+          <!-- <span
+            ><a class="btn btn-black Gers-Levels" href="javascript:;"
+              >Gers-Levels</a
+            ></span
+          > -->
+        </div>
+        <div class="col-md-7">
+          <div class="main-taitle-head">
+            <h4>{{ global.termsArray["lbl_home_choose_content_yourself"] }}</h4>
+          </div>
+          <figure>
+            <img
+              *ngIf="homeContent.imageUrl"
+              src="{{
+                homeContent.imageUrl + homeContent.images.content_text_image
+              }}"
+              alt="content text image"
+            />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="unsere-App-box">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="main-taitle-head">
+            <h4>{{ global.termsArray["lbl_home_wether_online_offline"] }}</h4>
+          </div>
+          <figure>
+            <img
+              *ngIf="homeContent.imageUrl"
+              src="{{
+                homeContent.imageUrl +
+                  homeContent.images.online_or_offline_text_image
+              }}"
+              alt="online or offline text image"
+            />
+          </figure>
+        </div>
+        <div class="col-md-5 main-taitle-none">
+          <h4>{{ global.termsArray["lbl_home_wether_online_offline"] }}</h4>
+          <div
+            class="app-ser-title"
+            *ngFor="let loop of homeContent?.online_or_offline_texts"
+          >
+            <span
+              ><img src="assets/images/check-white.svg" alt="check white image"
+            /></span>
+            <p>
+              <a href="javascript:;">{{ global.termsArray[loop?.heading] }}</a
+              ><ng-container
+                *ngIf="!global.termsArray['lbl_home_wether_online_offline']"
+                ><br
+              /></ng-container>
+              {{ loop?.title }}
+            </p>
+          </div>
+
+          <div class="button-gp-d">
+            <a
+              href="javascript:;"
+              class="btn btn-ios d-flex"
+              (click)="openUrl(1)"
+            >
+              <figure>
+                <img
+                  src="assets/images/google-play.svg"
+                  alt="google play image"
+                />
+              </figure>
+              <figcaption>
+                <span>{{ global.termsArray["lbl_home_get_it_on"] }}</span>
+                <strong>
+                  {{ global.termsArray["lbl_home_google_play"] }}</strong
+                >
+              </figcaption>
+            </a>
+            <a
+              href="javascript:;"
+              class="btn btn-ios d-flex"
+              (click)="openUrl(2)"
+            >
+              <figure>
+                <i class="fab fa-apple"></i>
+              </figure>
+              <figcaption>
+                <span>
+                  {{ global.termsArray["lbl_home_download_on_the"] }}</span
+                >
+                <strong> {{ global.termsArray["lbl_home_app_store"] }}</strong>
+              </figcaption>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<script type="text/javascript">
+  $(".home-carousel").owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: true,
+    dot: true,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      600: {
+        items: 1,
+      },
+      1000: {
+        items: 1,
+      },
+    },
+  });
+
+  // header sticky
+  $(window).scroll(function () {
+    var body = $("body"),
+      scroll = $(window).scrollTop();
+    if (scroll >= 5) {
+      body.addClass("fixed");
+    } else {
+      body.removeClass("fixed");
+    }
+  });
+</script>

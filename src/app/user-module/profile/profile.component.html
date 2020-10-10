@@ -1,0 +1,142 @@
+<div class="inner-wraper">
+    <section class="lesson-cont-sect">
+        <div class="container">
+            <article>
+                <div class="setting-arrow">
+                    <a href="javascript:;" (click)="goBack()">
+                        <i class="fas fa-chevron-left"></i>
+                        <h6>{{ global.termsArray["lbl_Settings"] }}</h6>
+                    </a>
+                </div>
+                <div class="list-sentens text-center">
+                    <div class="in-list-setting">
+                        <div class="account-title">
+                            <h4>{{ global.termsArray["lbl_profile"] }}</h4>
+                            <p>
+                                {{ global.termsArray["lbl_profile_subTitle"] }}
+                            </p>
+                        </div>
+                        <div class="profile-line-box">
+                            <form class="form-horizontal" role="form" [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)">
+                                <div class="d-flex">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="defaultUnchecked" name="gender" [checked]="formData.controls['gender'].value === 0" formControlName="gender" />
+                                        <label class="custom-control-label" for="defaultUnchecked" (click)="selectGender(0)">{{ global.termsArray["lbl_mr"] }}</label
+                    >
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="defaultUnchecked1"
+                      name="gender"
+                      [checked]="formData.controls['gender'].value === 1"
+                      formControlName="gender"
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="defaultUnchecked1"
+                      (click)="selectGender(1)"
+                      >{{ global.termsArray["lbl_ms"] }}</label
+                    >
+                  </div>
+                </div>
+                <div
+                  style="margin-top: -25px; margin-bottom: 10px;"
+                  *ngIf="
+                    formData.controls['gender'].value === '' &&
+                    this.formSubmitAttempt
+                  "
+                >
+                  <div
+                    *ngIf="formData.controls['gender'].value === ''"
+                    style="color: red;"
+                  >
+                    {{ global.termsArray["msg_field_required"] }}
+                  </div>
+                </div>
+
+                <div class="form-group pb-4">
+                  <input
+                    type="name"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    [placeholder]="global.termsArray['lbl_name']"
+                    formControlName="name"
+                    style="text-transform: capitalize;"
+                    maxlength="55"
+                    autofocus
+                  />
+                  <div
+                    *ngIf="
+                      formData.controls['name'].invalid &&
+                      (formData.controls['name'].dirty ||
+                        formData.controls['name'].touched ||
+                        this.formSubmitAttempt)
+                    "
+                  >
+                    <p
+                      *ngIf="formData.controls['name'].errors.required"
+                      style="color: red;"
+                    >
+                      {{ global.termsArray["err_enter_name"] }}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="form-group pb-4">
+                  <input
+                    type="name"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    [placeholder]="global.termsArray['lbl_surname']"
+                    autofocus
+                    formControlName="surname"
+                    style="text-transform: capitalize;"
+                    maxlength="55"
+                  />
+                  <div
+                    *ngIf="
+                      formData.controls['surname'].invalid &&
+                      (formData.controls['surname'].dirty ||
+                        formData.controls['surname'].touched ||
+                        this.formSubmitAttempt)
+                    "
+                  >
+                    <span
+                      *ngIf="formData.controls['surname'].errors.required"
+                      style="color: red;"
+                    >
+                      {{ global.termsArray["err_select_surname"] }}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="form-group pb-4">
+                  <input
+                    type="email"
+                    class="form-control"
+                    style="background-color: rgb(195,214,235);"
+                    id="exampleInputEmail1"
+                    [placeholder]="global.termsArray['lbl_email_address']"
+                    formControlName="email"
+                    readonly
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="bttn-blue">
+              <button
+                class="btn btn-blue"
+                (click)="onClickSubmit(formData.value)"
+              >
+                {{ global.termsArray["lbl_update"] }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+      <app-app></app-app>
+    </div>
+  </section>
+</div>

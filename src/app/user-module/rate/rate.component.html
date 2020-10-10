@@ -1,0 +1,129 @@
+<div class="inner-wraper">
+  <section class="lesson-cont-sect">
+    <div class="container">
+      <article>
+        <div class="setting-arrow">
+          <a href="javascript:;" (click)="goBack()">
+            <i class="fas fa-chevron-left"></i>
+            <h6>{{ global.termsArray["lbl_go_back"] }}</h6>
+          </a>
+        </div>
+
+        <div class="list-lesson-mob">
+          <div class="account-title">
+            <h4 *ngIf="!this.directFeedback; else elseblock1">
+              {{ global.termsArray["lbl_rate_birlingo"] }}
+            </h4>
+            <ng-template #elseblock1>
+              <h4>{{ global.termsArray["lbl_feedback"] }}</h4>
+            </ng-template>
+            <p *ngIf="!this.directFeedback; else elseblock2">
+              {{ global.termsArray["lbl_rating_subtitle"] }}
+            </p>
+            <ng-template #elseblock2>
+              <p>
+                {{ global.termsArray["lbl_subtitle_feedback"] }}
+              </p>
+            </ng-template>
+          </div>
+          <div class="like-sec" *ngIf="likeShow">
+            <h6>{{ global.termsArray["lbl_like_birlingo"] }}</h6>
+            <div class="d-flex" *ngIf="likeShow">
+              <button type="submit" class="btn btn-info" (click)="giveLike(0)">
+                {{ global.termsArray["lbl_no"] }}
+              </button>
+              <button type="submit" class="btn btn-info" (click)="giveLike(1)">
+                {{ global.termsArray["lbl_yes"] }}
+              </button>
+            </div>
+          </div>
+
+          <div class="like-sec" *ngIf="feedBackShow">
+            <h6>{{ global.termsArray["lbl_review_title"] }}</h6>
+            <div class="d-flex" *ngIf="feedBackShow">
+              <button
+                type="submit"
+                class="btn btn-info"
+                (click)="giveFeedback(0)"
+              >
+                {{ global.termsArray["lbl_no"] }}
+              </button>
+              <button
+                type="submit"
+                class="btn btn-info"
+                (click)="giveFeedback(1)"
+              >
+                {{ global.termsArray["lbl_yes"] }}
+              </button>
+            </div>
+          </div>
+
+          <div class="like-sec" *ngIf="directFeedShow">
+            <h6>{{ global.termsArray["lbl_feedback_title"] }}</h6>
+            <div class="d-flex" *ngIf="directFeedShow">
+              <button
+                type="submit"
+                class="btn btn-info"
+                (click)="giveDirectFeedback(0)"
+              >
+                {{ global.termsArray["lbl_no"] }}
+              </button>
+              <button
+                type="submit"
+                class="btn btn-info"
+                (click)="giveDirectFeedback(1)"
+              >
+                {{ global.termsArray["lbl_yes"] }}
+              </button>
+            </div>
+          </div>
+
+          <div class="rating-sec" *ngIf="giveRateShow || directFeedback">
+            <ul *ngIf="giveRateShow">
+              <li *ngFor="let rate of rating; let i = index">
+                <a href="javascript:; " (click)="pushRating(i)"
+                  ><i [ngClass]="rate ? 'fas fa-star' : 'far fa-star'"></i
+                ></a>
+              </li>
+            </ul>
+            <div class="rate-texts-c">
+              <h6>
+                {{
+                  giveRateShow
+                    ? global.termsArray["lbl_rating_comment"]
+                    : global.termsArray["lbl_feedback_comment"]
+                }}
+              </h6>
+              <textarea
+                class="form-control"
+                [ngClass]="
+                  this.directFeedback ? 'feedback-input' : 'rating-input'
+                "
+                [(ngModel)]="feedback"
+                style="color: #4882c2"
+                [placeholder]="
+                  giveRateShow
+                    ? global.termsArray['lbl_rating_comment']
+                    : global.termsArray['lbl_feedback_comment']
+                "
+              ></textarea>
+              <button
+                _ngcontent-dfe-c3=""
+                class="btn btn-info"
+                type="submit"
+                (click)="submitRating()"
+              >
+                {{
+                  alreadyRated
+                    ? global.termsArray["lbl_update"]
+                    : global.termsArray["lbl_Submit"]
+                }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+      <app-app></app-app>
+    </div>
+  </section>
+</div>

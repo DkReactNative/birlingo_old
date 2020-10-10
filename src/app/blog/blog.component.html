@@ -1,0 +1,91 @@
+<div class="inner-wraper">
+  <div
+    class="blog-banner-in"
+    [ngStyle]="{
+      background: 'url(' + blogHeader.image + ')',
+      height: blogHeader && blogHeader.image ? '787px' : '0px',
+      width: '1461px'
+    }"
+    [style.background-size]="'cover'"
+    id="tabName"
+    style="background-repeat: no-repeat; margin: auto"
+  >
+    <div class="container">
+      <div class="banner-title">
+        <span>
+          <h6 class="d-inline-block">«{{ WordCount(blogHeader.title, 1) }}</h6>
+          <h6>{{ WordCount(blogHeader.title, 2) }}</h6>
+          <h6>{{ WordCount(blogHeader.title, 3) }}.»</h6>
+          <a
+            class="btn btn-black bg-white"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 30%;
+            "
+            [routerLink]="['/blog-detail/' + blogHeader.slug]"
+            >{{ global.termsArray["lbl_read_the_post"] }}</a
+          >
+        </span>
+      </div>
+
+      <!--  -->
+    </div>
+  </div>
+
+  <section class="amet-blog-sect">
+    <!-- <div class="setting-arrow">
+      <a href="javascript:;">
+        <i class="fas fa-chevron-left" (click)="goBack()"></i>
+        <h6 (click)="goBack()">{{ global.termsArray["lbl_go_back"] }}</h6>
+      </a>
+    </div> -->
+    <div class="container">
+      <article *ngFor="let blog of blogArray; let i = index">
+        <h6>
+          {{ this.date(blog?.release_date) }}
+        </h6>
+        <h5>
+          <a (click)="setBlog(blog)" href="javascript:;">{{ blog?.title }}</a>
+        </h5>
+        <!-- <div [innerHTML]="blog['description'].substring(1, 4)"></div> -->
+        <!-- <figure><img [src]="blog.image?blog.image:'assets/images/blog.jpg'" onError="assets/images/blog.jpg" style="max-height: 400px;"></figure> -->
+        <p style="word-break: break-word">
+          {{
+            blog["introductory_text"]
+              ? blog["introductory_text"]
+              : htmlParse(blog["description"])
+          }}
+          <!-- <a
+            [routerLink]="['/blog-detail']"
+            [queryParams]="{
+              id: blog._id
+            }"
+            >{{ global.termsArray["lbl_view_more"] }}</a
+          > -->
+        </p>
+
+        <!-- <div class="authorDiv">
+          <span>{{ global.termsArray["lbl_author"] }}:</span
+          >{{ blog?.author_name }}
+        </div> -->
+        <a class="link-class" [routerLink]="['/blog-detail/' + blog.slug]">{{
+          global.termsArray["lbl_view_more"]
+        }}</a>
+      </article>
+
+      <nav>
+        <ul class="pagination pagination-lg" *ngIf="fakeArray.length != 1">
+          <li
+            *ngFor="let data of fakeArray; let i = index"
+            (click)="getBlogData(i + 1)"
+            [ngClass]="i == currentPage ? 'page-item active' : 'page-item'"
+          >
+            <a class="page-link">{{ i + 1 }}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+</div>

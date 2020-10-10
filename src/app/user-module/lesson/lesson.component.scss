@@ -1,0 +1,276 @@
+.newCss {
+  font-size: 15px;
+  color: #000;
+  font-family: "ACaslonPro-Bold";
+  width: 100%;
+  padding-bottom: 40px;
+  min-height: 80px;
+  overflow-y: auto;
+  max-height: 200px;
+}
+.height-70 {
+  height: 72px;
+}
+
+.height-50 {
+  height: 60px;
+}
+
+.newCss2 {
+  white-space: nowrap;
+  min-width: 150px;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gotoCss {
+  width: 100%;
+  min-height: 200px;
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+.right a img {
+  max-width: 25px;
+}
+
+.lesson-list-sects .right a {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 9;
+  pointer-events: initial;
+}
+
+.fas-fai-icon {
+  position: absolute;
+  top: 15px;
+  left: 95%;
+  z-index: 9;
+  pointer-events: initial;
+}
+
+.container {
+  .main-toolbar {
+    .spacer {
+      flex: 1 1 auto;
+    }
+    .toolbar-btn {
+      font-size: 16px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+  }
+  .content {
+    .logo {
+      margin: 2.5rem;
+      text-align: center;
+      font-size: 24px;
+      color: #3f51b5;
+      .mat-icon {
+        height: 160px !important;
+        width: 160px !important;
+        font-size: 160px !important;
+      }
+    }
+  }
+  .media-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    .time-slider {
+      width: 100% !important;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    .media-action-bar {
+      width: 100%;
+      padding: 2.5rem;
+      justify-content: center;
+      .mat-icon {
+        height: 48px !important;
+        width: 48px !important;
+        font-size: 48px !important;
+      }
+    }
+  }
+}
+
+.circle-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100;
+}
+
+.playing {
+  color: rgb(72, 130, 194);
+  cursor: pointer;
+}
+
+.not-playing {
+  color: "";
+  cursor: pointer;
+}
+
+.listeng a img {
+  width: 100%;
+  padding-top: 10px;
+}
+
+/* Transparent Overlay */
+
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 100%;
+  width: 100%;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50px 50px;
+  background-image: url(../../../assets/images/spinner-birlingo-transparent.gif);
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: "";
+  display: block;
+  font-size: 20px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 1500ms infinite linear;
+  -moz-animation: spinner 1500ms infinite linear;
+  -ms-animation: spinner 1500ms infinite linear;
+  -o-animation: spinner 1500ms infinite linear;
+  animation: spinner 1500ms infinite linear;
+  border-radius: 0.5em;
+  background-image: url(../../../assets/images/spinner-birlingo-transparent.gif);
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.modal-body {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.big-model-dialog {
+  height: 100%;
+  background: linear-gradient(to right, #4882c2 0, #7eb8e3 100%);
+}
+
+.scroo-dev-fix {
+  width: 300px !important;
+  overflow-x: hidden !important;
+  margin: auto;
+}
+.btn-flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn-flex-column :first-child {
+  margin-bottom: 10px;
+}
+
+.bttn-blue2 {
+  background-color: dodgerblue;
+  border-radius: 10px;
+}
+
+.color-white {
+  color: white !important;
+}
+
+.border-white {
+  border-color: white;
+}

@@ -1,0 +1,239 @@
+// /*--------------------------------------------------------------------------------------*/
+
+// /*Review-page-Css-Here -> From lakhan
+// /*--------------------------------------------------------------------------------------*/
+
+// progress::-webkit-progress-bar {
+//     background-color: #4882c2;
+// }
+
+// progress::-moz-progress-bar {
+//     background-color: #4882c2;
+// }
+
+// .reviewContentBg {
+//     padding: 0px 145px;
+// }
+
+// .bewertungenBox {
+//     margin-bottom: 50px;
+// }
+
+// .bewertungenBox h2 {
+//     font-size: 36px;
+//     color: #4882c2;
+//     font-weight: bold;
+//     margin-bottom: 50px;
+// }
+
+// .bewertungenList ul li {
+//     display: flex;
+//     align-items: center;
+// }
+
+// .bewertungenList ul li progress {
+//     // width: 100%;
+//     max-width: 100%;
+//     min-width: 75%;
+// }
+
+// .bewertungenList ul li span {
+//     font-size: 16px;
+//     color: #888888;
+// }
+
+// .bewertungenList ul li span:first-child {
+//     width: 150px;
+//     text-align: left;
+// }
+
+// .bewertungenList ul li span:last-child {
+//     width: 60px;
+//     text-align: right;
+// }
+
+// .reviewList ul li {
+//     // background: #f7f7f7;
+//     background: #e6e7e8;
+//     padding: 30px;
+//     margin-bottom: 30px;
+// }
+
+// .reviewList ul li:last-child {
+//     margin-bottom: 0;
+// }
+
+// .reviewList ul li h3 {
+//     font-size: 24px;
+//     color: #4882c2;
+//     font-weight: bold;
+//     margin-bottom: -1px
+// }
+
+// .dateSubtitle {
+//     display: flex;
+//     align-content: center;
+//     margin-top: 5px
+// }
+
+// .dateSubtitle h4 {
+//     margin-right: auto;
+//     font-size: 18px;
+//     color: #888888;
+//     font-weight: bold;
+//     padding-right: 15px;
+// }
+
+// .dateSubtitle span {
+//     margin-left: auto;
+//     font-size: 14px;
+//     color: #4882c2;
+// }
+
+// .reviewList ul li p {
+//     font-size: 18px;
+//     color: #888888;
+// }
+
+// .rating-sec {
+//     padding: 0px 0px;
+//     // padding-bottom: 25px;
+//     // margin-bottom: 25px;
+//     border-bottom: solid 1px #d8d8d8;
+// }
+
+// .rating-sec ul {
+//     display: flex;
+//     justify-content: flex-start;
+//     padding-bottom: 1px;
+// }
+
+// .rating-sec ul li a {
+//     font-size: 12px;
+//     color: #4882c2;
+// }
+
+// .rating-sec ul li {
+//     padding: 0px 2px;
+//     border-bottom: solid 0px #d8d8d8;
+// }
+
+/*--------------------------------------------------------------------------------------*/
+
+/*Review-page-Css-Here -> From lakhan
+/*--------------------------------------------------------------------------------------*/
+
+progress::-webkit-progress-bar {
+  background-color: #3d76ce;
+}
+
+progress::-moz-progress-bar {
+  background-color: #3d76ce;
+}
+
+.reviewContentBg {
+  padding: 0px 145px;
+}
+
+.bewertungenBox {
+  margin-bottom: 50px;
+}
+
+.bewertungenBox h2 {
+  font-size: 36px;
+  color: #3d76ce;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.bewertungenList ul li {
+  display: flex;
+  align-items: center;
+}
+
+.bewertungenList ul li progress {
+  // width: 100%;
+  max-width: 100%;
+  min-width: 75%;
+}
+
+.bewertungenList ul li span {
+  font-size: 16px;
+  color: #888888;
+}
+
+.bewertungenList ul li span:first-child {
+  width: 150px;
+  text-align: left;
+}
+
+.bewertungenList ul li span:last-child {
+  width: 60px;
+  text-align: right;
+}
+
+.reviewList ul li {
+  // background: #f7f7f7;
+  background: #e6e7e8;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.reviewList ul li:last-child {
+  margin-bottom: 0;
+}
+
+.reviewList ul li h3 {
+  font-size: 24px;
+  color: #3d76ce;
+  font-weight: bold;
+  margin-bottom: -1px;
+}
+
+.dateSubtitle {
+  display: flex;
+  align-content: center;
+  margin-top: 5px;
+}
+
+.dateSubtitle h4 {
+  margin-right: auto;
+  font-size: 18px;
+  color: #888888;
+  font-weight: bold;
+  padding-right: 15px;
+}
+
+.dateSubtitle span {
+  margin-left: auto;
+  font-size: 14px;
+  color: #3d76ce;
+}
+
+.reviewList ul li p {
+  font-size: 18px;
+  color: #888888;
+}
+
+.rating-sec {
+  padding: 0px 0px;
+  // padding-bottom: 25px;
+  // margin-bottom: 25px;
+  border-bottom: solid 1px #d8d8d8;
+}
+
+.rating-sec ul {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 1px;
+}
+
+.rating-sec ul li a {
+  font-size: 12px;
+  color: #3d76ce;
+}
+
+.rating-sec ul li {
+  padding: 0px 2px;
+  border-bottom: solid 0px #d8d8d8;
+}
